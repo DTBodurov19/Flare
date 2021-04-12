@@ -11,6 +11,15 @@ section{
     font-family: 'Montserrat';
 }
 
+.hovering{
+    opacity: 0;
+    transform:translate(-50%, 50%);
+    transform:scale(0);
+    opacity: 100%;
+    transform:scale(3);
+    background: rgba(252, 252, 252, 0.062);
+}
+
 
 
 body{
@@ -49,27 +58,21 @@ body{
                         width: 20px;
                         height: 20px;
                         border-radius: 50%;
-                        background: rgba(128, 128, 128, 0.459);
-                        transition: 0.1s;
-                        transform:translate(-50%, 50%);
+                        transition: 0.2s;
                         pointer-events: none;
                         mix-blend-mode: difference;
-                        opacity: 0;
+                        z-index: 1;
                     }
 
                     li{
                         list-style: none;
                         padding: 25px 25px;
 
-                        &:hover ~ .cursor{
-                            transition: opacity ease-in-out 0.5s;
-                            transform:scale(3);
-                            opacity: 100;
-                        }
-
-                        a{                           
+                        a{                        
+                            color:rgb(182, 182, 182);   
                             text-decoration: none;
                             transition: color .3s;
+                            z-index: 2;
 
                             &:visited{
                                 color:rgb(182, 182, 182);
