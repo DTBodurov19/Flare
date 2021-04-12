@@ -56,9 +56,32 @@ body .site-wrapper .navbar ul .links {
   margin-right: 5rem;
 }
 
+body .site-wrapper .navbar ul .links .cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(128, 128, 128, 0.459);
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  opacity: 0;
+}
+
 body .site-wrapper .navbar ul .links li {
   list-style: none;
   padding: 25px 25px;
+}
+
+body .site-wrapper .navbar ul .links li:hover ~ .cursor {
+  -webkit-transition: opacity ease-in-out 0.5s;
+  transition: opacity ease-in-out 0.5s;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  opacity: 100;
 }
 
 body .site-wrapper .navbar ul .links li a {

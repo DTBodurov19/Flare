@@ -23,9 +23,9 @@ body{
             color: rgb(182, 182, 182);
             font-family: 'Montserrat', sans-serif;
 
-           .dashboard{
-               display: none;
-           }
+        .dashboard{
+            display: none;
+        }
 
             ul{
                 display: flex;
@@ -44,11 +44,30 @@ body{
                     justify-content: flex-end;
                     margin-right: 5rem;
 
+                    .cursor{
+                        position:fixed;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        background: rgba(128, 128, 128, 0.459);
+                        transition: 0.1s;
+                        transform:translate(-50%, 50%);
+                        pointer-events: none;
+                        mix-blend-mode: difference;
+                        opacity: 0;
+                    }
+
                     li{
                         list-style: none;
                         padding: 25px 25px;
 
-                        a{
+                        &:hover ~ .cursor{
+                            transition: opacity ease-in-out 0.5s;
+                            transform:scale(3);
+                            opacity: 100;
+                        }
+
+                        a{                           
                             text-decoration: none;
                             transition: color .3s;
 
@@ -61,9 +80,7 @@ body{
                             }
                         }
                     }
-    
                 }
-
             }
         }
     }
