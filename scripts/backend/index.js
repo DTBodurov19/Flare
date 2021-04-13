@@ -25,7 +25,10 @@ class AccountManager {
   constructor() {}
 
   get activeUser() {
-    return this._activeUser;
+    return {
+      permissions: this._activeUser.permissions,
+      username: this._activeUser.username,
+    };
   }
 
   /**
@@ -38,7 +41,7 @@ class AccountManager {
     let result = this._accounts.filter(account => account.username === username && account.password === password)[0];
     if (result === undefined) throw new Error('Incorrect username or password');
 
-    this._activeUser = result.permissions;
+    this._activeUser = result;
 
     return this.activeUser;
   }
