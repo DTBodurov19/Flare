@@ -49,9 +49,26 @@
 
         <section>
             <h1>Footer</h1>
+
+            <form id="log-in-form">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="form-username">
+
+                <label for="password">password:</label>
+                <input type="password" name="password" id="form-password">
+
+                <input type="submit" value="Submit">
+            </form>
+
+            <div class="message-holder">
+                <p id="message"></p>
+            </div>
+
+
         </section>
     </div>
     <script type="text/javascript" src="scripts/backend/index.js"></script>
     <script type="text/javascript" src="scripts/frontend/app.js"></script>
+    <script type="text/javascript" src="scripts/frontend/loginManager.js"></script>
 </body>
 </html>
