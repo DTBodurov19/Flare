@@ -7,11 +7,11 @@ document.addEventListener('mousemove', (e) => {
 })
 
 arr.forEach(item => {
-    item.addEventListener("mouseover", ()=>{
-        cursor.classList.add("hovering");
+    item.addEventListener('mouseover', ()=>{
+        cursor.classList.add('hovering');
     })
 
-    item.addEventListener("mouseout", ()=>{
-        cursor.classList.remove("hovering");
+    item.addEventListener('mouseout', ()=>{
+        cursor.classList.remove('hovering');
     })
 })

@@ -1,32 +1,23 @@
-let form = document.getElementById('log-in-form');
-let Username = document.getElementById('form-username');
-let Password = document.getElementById('form-password');
-let messageElement = document.getElementById('message');
-let accManager = new AccountManager;
+const form = document.getElementById('log-in-form');
+const Username = document.getElementById('form-username');
+const Password = document.getElementById('form-password');
+const messageElement = document.getElementById('message');
+const accManager = new AccountManager;
 
-function doForm(accmanager, username, password){
+function validateForm(accmanager, username, password){
     accmanager.login(username.value, password.value);
-    console.log(accManager.activeUser);
 }
 
 form.addEventListener('submit', (e) =>{
     e.preventDefault();
+
     try{
-        doForm(accManager, Username, Password);
+        validateForm(accManager, Username, Password);
+        messageElement.classList.remove('error');
+        messageElement.innerHTML = `Logged in as a ${accManager.activeUser}`;
     }
-
-    catch(error){
-        messagerElement.innerHTML = error;
-        console.log(error);
+    catch (error){
+        messageElement.classList.add('error');
+        messageElement.innerHTML = error;
     }
-
-    finally{
-        messageElement.innerHTML = 'Logged in as a ' + accManager.activeUser;
-        console.log("Logged in successfuly!");
-    }
-
-})
-
-
-
-
+});
