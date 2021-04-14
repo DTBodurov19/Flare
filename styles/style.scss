@@ -24,22 +24,165 @@ section{
     color: red;
 }
 
+.input-field{
+    margin-bottom: 15px;
+    outline:none;
+    padding: 1em 1.8em;
+    border: 1px rgba(255, 255, 255, 0.342) solid;
+    border-radius: 15px;
+    background:rgba(255, 255, 255, 0.151);
+    backdrop-filter: blur(20px);
+    color:white;
+    transition: .2s;
 
+    &::placeholder{
+        color:#9798b1;
+    }
+
+    &:focus{
+        background:rgba(20, 5, 61, 0.301);
+        border-color:rgb(255, 0, 140);
+        box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px ;
+    }
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.103);
+    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+    border-radius: 15px;
+    backdrop-filter: blur(40px);
+    transition: .3s;
+
+    &:hover{
+        box-shadow: rgba(255, 255, 255, 0.562) 0px 0px 0px 0.5px inset;
+        cursor:pointer;
+    }
+}
 
 body{
-
+    overflow-x: hidden;
     background: #17182d;
-    
-    .site-wrapper{
 
+    
+    .cursor{
+        position:fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: 0.2s;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+
+    .test{
+
+        position: absolute;
+
+        .form-bg-blur-animation{
+            animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
+        }
+
+        .form-enter-animation{
+            animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) .5s 1 normal forwards running loginFormEnter;
+        }
+
+        .form-overlay{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            z-index: -1;
+            display: 0;
+            opacity: 0;
+    
+            .log-in-form-container{
+                position: relative;
+                max-width: 960px;
+                width: 100%;
+                height: 50%;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                justify-items: center;
+                background: rgba(50, 61, 109, 0.5);
+                backdrop-filter: blur(40px);
+                box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                border-radius: 20px;
+                opacity: 0;
+                transition: 2s;
+                transition-delay: .6s;
+
+                #log-in-form{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 80%;
+
+                    .submit-button-container{
+                        
+                        .submit-login{
+                            padding: 1em 8em;
+                            background: linear-gradient(to left, rgb(255, 0, 140), purple);
+                            outline: none;
+                            border:none;
+                            border-radius: 15px;
+                            color: white;
+                            box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+                            cursor: pointer;
+                            transition: .2s;
+
+                            &:hover{
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                    
+                }
+
+                .form-exit-button{
+                    position: absolute;
+                    right: -5px;
+                    top: -10px;
+                    cursor:pointer;
+                    background: none;
+                    outline:none;
+                    border:none;
+                    border-radius: 50px;
+                    padding: .8em 1em;
+                    background: rgba(255, 255, 255, 0.144);
+                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                    color: white;
+                    font-size: 1em;
+                    transition: .2s;
+
+                    &:hover{
+                        background: rgba(255, 255, 255, 0.425);
+                        padding: .9em 1.1em;
+                    }
+                }
+            }
+        }
+    }
         .navbar{
             color: rgb(182, 182, 182);
             font-family: 'Montserrat', sans-serif;
-
-        .dashboard{
-            display: none;
-        }
-
+            
+            .dashboard{
+                display: none;
+            }
+            
             ul{
                 display: flex;
                 flex-direction: row;
@@ -56,18 +199,8 @@ body{
                     text-align: right;
                     justify-content: flex-end;
                     margin-right: 5rem;
-
-                    .cursor{
-                        position:fixed;
-                        width: 20px;
-                        height: 20px;
-                        border-radius: 50%;
-                        transition: 0.2s;
-                        pointer-events: none;
-                        mix-blend-mode: difference;
-                        z-index: 1;
-                    }
-
+                    
+                    
                     li{
                         list-style: none;
                         padding: 25px 25px;
@@ -77,7 +210,7 @@ body{
                             text-decoration: none;
                             transition: color .3s;
                             z-index: 2;
-
+                            
                             &:visited{
                                 color:rgb(182, 182, 182);
                             }
@@ -90,8 +223,71 @@ body{
                 }
             }
         }
+
+        #footer{
+
+            .login-button-container{
+                height: 90vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .login-button{
+                    background: none;
+                    border:none;
+                    outline: none;
+                    padding: .5em 1em;
+                    font-size: 2em;
+                    text-align: center;
+                    color: white;
+                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    width: 10em;
+                    background: rgba(50, 61, 109, 0.5);
+                    backdrop-filter: blur(30px);
+                    transition: all .20s;
+        
+                    &:hover{
+                        margin-bottom: 6px;
+                        box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+                    }
+                }
+            }
+        }
+
     }
-}
 
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+    @keyframes blurFormBackground{
+        0%{
+            backdrop-filter: blur(0px);
+        }
+
+        100%{
+            backdrop-filter: blur(20px);
+        }
+    }
+
+    @keyframes loginFormEnter{
+        0%{
+            transform: perspective(175em);
+            transform: rotateX(18deg);
+            opacity: 0;
+            margin-bottom: 80px;
+            backdrop-filter: blur(0px);
+            box-shadow:
+            rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+            rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+        }
+
+        100%{
+            transform: perspective(0);
+            transform: rotateX(0);
+            opacity: 1;
+            margin-bottom: 0;
+            backdrop-filter: blur(30px);
+        }
+    }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap')

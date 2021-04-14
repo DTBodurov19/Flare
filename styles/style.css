@@ -28,20 +28,214 @@ section {
   color: red;
 }
 
+.input-field {
+  margin-bottom: 15px;
+  outline: none;
+  padding: 1em 1.8em;
+  border: 1px rgba(255, 255, 255, 0.342) solid;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.151);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.input-field::-webkit-input-placeholder {
+  color: #9798b1;
+}
+
+.input-field:-ms-input-placeholder {
+  color: #9798b1;
+}
+
+.input-field::-ms-input-placeholder {
+  color: #9798b1;
+}
+
+.input-field::placeholder {
+  color: #9798b1;
+}
+
+.input-field:focus {
+  background: rgba(20, 5, 61, 0.301);
+  border-color: #ff008c;
+  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.103);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  -webkit-box-shadow: rgba(255, 255, 255, 0.562) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.562) 0px 0px 0px 0.5px inset;
+  cursor: pointer;
+}
+
 body {
+  overflow-x: hidden;
   background: #17182d;
 }
 
-body .site-wrapper .navbar {
+body .cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body .test {
+  position: absolute;
+}
+
+body .test .form-bg-blur-animation {
+  -webkit-animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
+          animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
+}
+
+body .test .form-enter-animation {
+  -webkit-animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
+          animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
+}
+
+body .test .form-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  z-index: -1;
+  display: 0;
+  opacity: 0;
+}
+
+body .test .form-overlay .log-in-form-container {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  height: 50%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  background: rgba(50, 61, 109, 0.5);
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  border-radius: 20px;
+  opacity: 0;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+
+body .test .form-overlay .log-in-form-container #log-in-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+}
+
+body .test .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login {
+  padding: 1em 8em;
+  background: -webkit-gradient(linear, right top, left top, from(#ff008c), to(purple));
+  background: linear-gradient(to left, #ff008c, purple);
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+body .test .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body .test .form-overlay .log-in-form-container .form-exit-button {
+  position: absolute;
+  right: -5px;
+  top: -10px;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  padding: .8em 1em;
+  background: rgba(255, 255, 255, 0.144);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  color: white;
+  font-size: 1em;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+body .test .form-overlay .log-in-form-container .form-exit-button:hover {
+  background: rgba(255, 255, 255, 0.425);
+  padding: .9em 1.1em;
+}
+
+body .navbar {
   color: #b6b6b6;
   font-family: 'Montserrat', sans-serif;
 }
 
-body .site-wrapper .navbar .dashboard {
+body .navbar .dashboard {
   display: none;
 }
 
-body .site-wrapper .navbar ul {
+body .navbar ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,12 +245,12 @@ body .site-wrapper .navbar ul {
           flex-direction: row;
 }
 
-body .site-wrapper .navbar ul #logo {
+body .navbar ul #logo {
   width: 50%;
   margin-left: 5rem;
 }
 
-body .site-wrapper .navbar ul .links {
+body .navbar ul .links {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,24 +266,12 @@ body .site-wrapper .navbar ul .links {
   margin-right: 5rem;
 }
 
-body .site-wrapper .navbar ul .links .cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  pointer-events: none;
-  mix-blend-mode: difference;
-  z-index: 1;
-}
-
-body .site-wrapper .navbar ul .links li {
+body .navbar ul .links li {
   list-style: none;
   padding: 25px 25px;
 }
 
-body .site-wrapper .navbar ul .links li a {
+body .navbar ul .links li a {
   color: #b6b6b6;
   text-decoration: none;
   -webkit-transition: color .3s;
@@ -97,11 +279,122 @@ body .site-wrapper .navbar ul .links li a {
   z-index: 2;
 }
 
-body .site-wrapper .navbar ul .links li a:visited {
+body .navbar ul .links li a:visited {
   color: #b6b6b6;
 }
 
-body .site-wrapper .navbar ul .links li a:hover {
+body .navbar ul .links li a:hover {
   color: white;
+}
+
+body #footer .login-button-container {
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #footer .login-button-container .login-button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: .5em 1em;
+  font-size: 2em;
+  text-align: center;
+  color: white;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 10em;
+  background: rgba(50, 61, 109, 0.5);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  -webkit-transition: all .20s;
+  transition: all .20s;
+}
+
+body #footer .login-button-container .login-button:hover {
+  margin-bottom: 6px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+}
+
+@-webkit-keyframes blurFormBackground {
+  0% {
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  100% {
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+}
+
+@keyframes blurFormBackground {
+  0% {
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  100% {
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+}
+
+@-webkit-keyframes loginFormEnter {
+  0% {
+    -webkit-transform: perspective(175em);
+            transform: perspective(175em);
+    -webkit-transform: rotateX(18deg);
+            transform: rotateX(18deg);
+    opacity: 0;
+    margin-bottom: 80px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+  }
+  100% {
+    -webkit-transform: perspective(0);
+            transform: perspective(0);
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+  }
+}
+
+@keyframes loginFormEnter {
+  0% {
+    -webkit-transform: perspective(175em);
+            transform: perspective(175em);
+    -webkit-transform: rotateX(18deg);
+            transform: rotateX(18deg);
+    opacity: 0;
+    margin-bottom: 80px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+  }
+  100% {
+    -webkit-transform: perspective(0);
+            transform: perspective(0);
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+  }
 }
 /*# sourceMappingURL=style.css.map */

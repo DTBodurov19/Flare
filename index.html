@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    
 
-    <div class="site-wrapper">
- 
+    <div class="cursor"></div>
         <nav class="navbar">
             <ul>
                 <div id="logo">
@@ -23,17 +23,36 @@
                         <li><a href="#home" class="dashboard firefighter">Dashboard</a></li>
                         <li><a href="#home" class="dashboard driver">Dashboard</a></li>
                         <li><a href="#home" class="hoverable">Home</a></li>
-                        <div class="hoverable filler"></div>
                         <li><a href="#info" class="hoverable">Information</a></li>
-                        <div class="hoverable filler"></div>
                         <li><a href="#team" class="hoverable">Team</a></li>
-                        <div class="hoverable filler"></div>
-                        <div class="cursor"></div>
                 </div>
                 
             </ul>
             
         </nav>
+        
+        <div class="test">
+
+            <div class="form-overlay">
+                <div class="log-in-form-container">
+                    <button class="form-exit-button">X</button>
+                    <form id="log-in-form">
+                        <div class="username-field">
+                            <input type="text" name="username" id="form-username"  class="input-field" autocomplete="off" placeholder="Username">
+                        </div>
+        
+                        <div class="password-field">
+                            <input type="password" name="password" id="form-password" class="input-field" autocomplete="off" placeholder="Password">
+                        </div>
+        
+        
+                        <div class="submit-button-container">
+                            <button class="submit-login">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         
         <section id="home">
             <h1>Home</h1>
@@ -47,18 +66,15 @@
             <h1>Team</h1>
         </section>
 
-        <section>
+        <section id="footer">
             <h1>Footer</h1>
 
-            <form id="log-in-form">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="form-username">
+           <div class="login-button-container">
+                <button class="login-button hoverable">Log in</button>
+           </div>
+            
 
-                <label for="password">password:</label>
-                <input type="password" name="password" id="form-password">
-
-                <input type="submit" value="Submit">
-            </form>
+            
 
             <div class="message-container">
                 <p id="message"></p>
@@ -66,7 +82,7 @@
 
 
         </section>
-    </div>
+
     <script type="text/javascript" src="scripts/backend/index.js"></script>
     <script type="text/javascript" src="scripts/frontend/app.js"></script>
     <script type="text/javascript" src="scripts/frontend/loginManager.js"></script>

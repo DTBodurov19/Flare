@@ -22,6 +22,6 @@ loginForm.addEventListener('submit', (e) =>{
     }
     finally {
         usernameField.value = '';
-        passwordField.value = '';
+        passwordField.value = ''; 
     }
 });
