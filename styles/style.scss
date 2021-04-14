@@ -79,7 +79,7 @@ body{
     }
 
 
-    .test{
+    .login-form-overlay-container{
 
         position: absolute;
 
@@ -105,6 +105,7 @@ body{
             z-index: -1;
             display: 0;
             opacity: 0;
+            perspective: 175em;
     
             .log-in-form-container{
                 position: relative;
@@ -118,7 +119,7 @@ body{
                 justify-items: center;
                 background: rgba(50, 61, 109, 0.5);
                 backdrop-filter: blur(40px);
-                box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                border: rgba(255, 255, 255, 0.219) .1px solid;
                 border-radius: 20px;
                 opacity: 0;
                 transition: 2s;
@@ -149,6 +150,14 @@ body{
                         }
                     }
                     
+                }
+
+                h1{
+                    position: absolute;
+                    top: 15%;
+                    color: white;
+                    font-family:'Montserrat';
+                    font-size: 2.5rem;
                 }
 
                 .form-exit-button{
@@ -271,18 +280,14 @@ body{
 
     @keyframes loginFormEnter{
         0%{
-            transform: perspective(175em);
-            transform: rotateX(18deg);
+            transform: rotateX(-18deg);
             opacity: 0;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             backdrop-filter: blur(0px);
-            box-shadow:
-            rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
-            rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
         }
 
         100%{
-            transform: perspective(0);
             transform: rotateX(0);
             opacity: 1;
             margin-bottom: 0;

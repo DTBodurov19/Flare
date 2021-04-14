@@ -102,21 +102,21 @@ body .cursor {
   z-index: 1;
 }
 
-body .test {
+body .login-form-overlay-container {
   position: absolute;
 }
 
-body .test .form-bg-blur-animation {
+body .login-form-overlay-container .form-bg-blur-animation {
   -webkit-animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
           animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
 }
 
-body .test .form-enter-animation {
+body .login-form-overlay-container .form-enter-animation {
   -webkit-animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
           animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
 }
 
-body .test .form-overlay {
+body .login-form-overlay-container .form-overlay {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -137,9 +137,11 @@ body .test .form-overlay {
   z-index: -1;
   display: 0;
   opacity: 0;
+  -webkit-perspective: 175em;
+          perspective: 175em;
 }
 
-body .test .form-overlay .log-in-form-container {
+body .login-form-overlay-container .form-overlay .log-in-form-container {
   position: relative;
   max-width: 960px;
   width: 100%;
@@ -158,8 +160,7 @@ body .test .form-overlay .log-in-form-container {
   background: rgba(50, 61, 109, 0.5);
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
-  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
-          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  border: rgba(255, 255, 255, 0.219) 0.1px solid;
   border-radius: 20px;
   opacity: 0;
   -webkit-transition: 2s;
@@ -168,7 +169,7 @@ body .test .form-overlay .log-in-form-container {
           transition-delay: .6s;
 }
 
-body .test .form-overlay .log-in-form-container #log-in-form {
+body .login-form-overlay-container .form-overlay .log-in-form-container #log-in-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -182,7 +183,7 @@ body .test .form-overlay .log-in-form-container #log-in-form {
   width: 80%;
 }
 
-body .test .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login {
+body .login-form-overlay-container .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login {
   padding: 1em 8em;
   background: -webkit-gradient(linear, right top, left top, from(#ff008c), to(purple));
   background: linear-gradient(to left, #ff008c, purple);
@@ -197,12 +198,20 @@ body .test .form-overlay .log-in-form-container #log-in-form .submit-button-cont
   transition: .2s;
 }
 
-body .test .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login:hover {
+body .login-form-overlay-container .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-body .test .form-overlay .log-in-form-container .form-exit-button {
+body .login-form-overlay-container .form-overlay .log-in-form-container h1 {
+  position: absolute;
+  top: 15%;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+}
+
+body .login-form-overlay-container .form-overlay .log-in-form-container .form-exit-button {
   position: absolute;
   right: -5px;
   top: -10px;
@@ -221,7 +230,7 @@ body .test .form-overlay .log-in-form-container .form-exit-button {
   transition: .2s;
 }
 
-body .test .form-overlay .log-in-form-container .form-exit-button:hover {
+body .login-form-overlay-container .form-overlay .log-in-form-container .form-exit-button:hover {
   background: rgba(255, 255, 255, 0.425);
   padding: .9em 1.1em;
 }
@@ -350,20 +359,16 @@ body #footer .login-button-container .login-button:hover {
 
 @-webkit-keyframes loginFormEnter {
   0% {
-    -webkit-transform: perspective(175em);
-            transform: perspective(175em);
-    -webkit-transform: rotateX(18deg);
-            transform: rotateX(18deg);
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
     opacity: 0;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     -webkit-backdrop-filter: blur(0px);
             backdrop-filter: blur(0px);
-    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
-            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
   }
   100% {
-    -webkit-transform: perspective(0);
-            transform: perspective(0);
     -webkit-transform: rotateX(0);
             transform: rotateX(0);
     opacity: 1;
@@ -375,20 +380,16 @@ body #footer .login-button-container .login-button:hover {
 
 @keyframes loginFormEnter {
   0% {
-    -webkit-transform: perspective(175em);
-            transform: perspective(175em);
-    -webkit-transform: rotateX(18deg);
-            transform: rotateX(18deg);
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
     opacity: 0;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     -webkit-backdrop-filter: blur(0px);
             backdrop-filter: blur(0px);
-    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
-            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
   }
   100% {
-    -webkit-transform: perspective(0);
-            transform: perspective(0);
     -webkit-transform: rotateX(0);
             transform: rotateX(0);
     opacity: 1;
