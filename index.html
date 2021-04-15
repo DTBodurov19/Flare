@@ -1,35 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare</title>
-    
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    
-
-    <div class="cursor"></div>
-        <nav class="navbar">
-            <ul>
-                <div id="logo">
-                    <img src="img/Logo transparent.png" alt="logo" width = "30px">
-                </div>
-
-                <div class="links">
-                        <li><a href="#home" class="dashboard dispatcher">Dashboard</a></li>
-                        <li><a href="#home" class="dashboard firefighter">Dashboard</a></li>
-                        <li><a href="#home" class="dashboard driver">Dashboard</a></li>
-                        <li><a href="#home" class="hoverable">Home</a></li>
-                        <li><a href="#info" class="hoverable">Information</a></li>
-                        <li><a href="#team" class="hoverable">Team</a></li>
-                </div>
-                
-            </ul>
-            
-        </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flare</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
         
         <div class="login-form-overlay-container">
             <div class="form-overlay">
@@ -37,7 +15,7 @@
                     <button class="form-exit-button">X</button>
                     <h1>Log in</h1>
                     <form id="log-in-form">
-
+        
                         <div class="username-field">
                             <input type="text" name="username" id="form-username"  class="input-field" autocomplete="off" placeholder="Username">
                         </div>
@@ -55,8 +33,33 @@
             </div>
         </div>
         
+
+    <div id="SmoothScroll">
+        <div class="cursor"></div>
+            <nav class="navbar">
+                <ul>
+                    <div id="logo">
+                        <img src="img/Logo transparent.png" alt="logo" width = "30px">
+                    </div>
+                    
+                    <div class="links">
+                        <li><a href="#home" class="dashboard dispatcher">Dashboard</a></li>
+                        <li><a href="#home" class="dashboard firefighter">Dashboard</a></li>
+                        <li><a href="#home" class="dashboard driver">Dashboard</a></li>
+                        <li><a href="#home" class="hoverable">Home</a></li>
+                        <li><a href="#info" class="hoverable">Information</a></li>
+                        <li><a href="#team" class="hoverable">Team</a></li>
+                    </div>
+                </ul>
+            </nav>
+        
         <section id="home">
             <h1>Home</h1>
+
+            <div class="report-button-container">
+                <button class="report-button">Report A Fire</button>
+            </div>
+
         </section>
         
         <section id="info">
@@ -70,20 +73,21 @@
         <section id="footer">
             <h1>Footer</h1>
 
-           <div class="login-button-container">
-                <button class="login-button hoverable">Log in</button>
-           </div>
+            <div class="login-button-container">
+                <button class="login-button">Log in</button>
+            </div>
             
-
-            
-
             <div class="message-container">
                 <p id="message"></p>
             </div>
 
-
         </section>
+    </div>
 
+    <script src="scripts/frontend/butter.js"></script>
+    <script>
+    butter.init();
+    </script>
     <script type="text/javascript" src="scripts/backend/index.js"></script>
     <script type="text/javascript" src="scripts/frontend/app.js"></script>
     <script type="text/javascript" src="scripts/frontend/loginManager.js"></script>

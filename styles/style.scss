@@ -233,6 +233,37 @@ body{
             }
         }
 
+        #home{
+            .report-button-container{
+                height: 50vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .report-button{
+                    background: none;
+                    border:none;
+                    outline: none;
+                    padding: .5em 1em;
+                    font-size: 2em;
+                    text-align: center;
+                    color: white;
+                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    width: 10em;
+                    background: rgba(50, 61, 109, 0.5);
+                    backdrop-filter: blur(30px);
+                    transition: all .20s;
+        
+                    &:hover{
+                        margin-bottom: 6px;
+                        box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+                    }
+                }
+            }
+        }
+
         #footer{
 
             .login-button-container{
