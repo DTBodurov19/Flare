@@ -96,27 +96,27 @@ body .cursor {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
   pointer-events: none;
   z-index: 1;
 }
 
-body .login-form-overlay-container {
+body .forms-overlay-container {
   position: absolute;
 }
 
-body .login-form-overlay-container .form-bg-blur-animation {
+body .forms-overlay-container .form-bg-blur-animation {
   -webkit-animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
           animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
 }
 
-body .login-form-overlay-container .form-enter-animation {
+body .forms-overlay-container .form-enter-animation {
   -webkit-animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
           animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
 }
 
-body .login-form-overlay-container .form-overlay {
+body .forms-overlay-container .form-overlay {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -141,7 +141,7 @@ body .login-form-overlay-container .form-overlay {
           perspective: 175em;
 }
 
-body .login-form-overlay-container .form-overlay .log-in-form-container {
+body .forms-overlay-container .form-overlay .log-in-form-container {
   position: relative;
   max-width: 960px;
   width: 100%;
@@ -169,7 +169,7 @@ body .login-form-overlay-container .form-overlay .log-in-form-container {
           transition-delay: .6s;
 }
 
-body .login-form-overlay-container .form-overlay .log-in-form-container #log-in-form {
+body .forms-overlay-container .form-overlay .log-in-form-container #log-in-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -183,7 +183,7 @@ body .login-form-overlay-container .form-overlay .log-in-form-container #log-in-
   width: 80%;
 }
 
-body .login-form-overlay-container .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login {
+body .forms-overlay-container .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login {
   padding: 1em 8em;
   background: -webkit-gradient(linear, right top, left top, from(#ff008c), to(purple));
   background: linear-gradient(to left, #ff008c, purple);
@@ -198,12 +198,12 @@ body .login-form-overlay-container .form-overlay .log-in-form-container #log-in-
   transition: .2s;
 }
 
-body .login-form-overlay-container .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login:hover {
+body .forms-overlay-container .form-overlay .log-in-form-container #log-in-form .submit-button-container .submit-login:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-body .login-form-overlay-container .form-overlay .log-in-form-container h1 {
+body .forms-overlay-container .form-overlay .log-in-form-container h1 {
   position: absolute;
   top: 15%;
   color: white;
@@ -211,7 +211,7 @@ body .login-form-overlay-container .form-overlay .log-in-form-container h1 {
   font-size: 2.5rem;
 }
 
-body .login-form-overlay-container .form-overlay .log-in-form-container .form-exit-button {
+body .forms-overlay-container .form-overlay .log-in-form-container .form-exit-button {
   position: absolute;
   right: -5px;
   top: -10px;
@@ -230,7 +230,102 @@ body .login-form-overlay-container .form-overlay .log-in-form-container .form-ex
   transition: .2s;
 }
 
-body .login-form-overlay-container .form-overlay .log-in-form-container .form-exit-button:hover {
+body .forms-overlay-container .form-overlay .log-in-form-container .form-exit-button:hover {
+  background: rgba(255, 255, 255, 0.425);
+  padding: .9em 1.1em;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  height: 50%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  background: rgba(50, 61, 109, 0.5);
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  border: rgba(255, 255, 255, 0.219) 0.1px solid;
+  border-radius: 20px;
+  opacity: 0;
+  display: none;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container #report-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container #report-form .submit-button-container .submit-login {
+  padding: 1em 8em;
+  background: -webkit-gradient(linear, right top, left top, from(#ff008c), to(purple));
+  background: linear-gradient(to left, #ff008c, purple);
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container #report-form .submit-button-container .submit-login:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container h1 {
+  position: absolute;
+  top: 15%;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container .report-form-exit-button {
+  position: absolute;
+  right: -5px;
+  top: -10px;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  padding: .8em 1em;
+  background: rgba(255, 255, 255, 0.144);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  color: white;
+  font-size: 1em;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container .report-form-exit-button:hover {
   background: rgba(255, 255, 255, 0.425);
   padding: .9em 1.1em;
 }

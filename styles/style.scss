@@ -73,13 +73,13 @@ body{
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        transition: 0.2s;
+        transition: 0.1s;
         pointer-events: none;
         z-index: 1;
     }
 
 
-    .login-form-overlay-container{
+    .forms-overlay-container{
 
         position: absolute;
 
@@ -161,6 +161,83 @@ body{
                 }
 
                 .form-exit-button{
+                    position: absolute;
+                    right: -5px;
+                    top: -10px;
+                    cursor:pointer;
+                    background: none;
+                    outline:none;
+                    border:none;
+                    border-radius: 50px;
+                    padding: .8em 1em;
+                    background: rgba(255, 255, 255, 0.144);
+                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                    color: white;
+                    font-size: 1em;
+                    transition: .2s;
+
+                    &:hover{
+                        background: rgba(255, 255, 255, 0.425);
+                        padding: .9em 1.1em;
+                    }
+                }
+            }
+
+            .report-form-container{
+                position: relative;
+                max-width: 960px;
+                width: 100%;
+                height: 50%;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                justify-items: center;
+                background: rgba(50, 61, 109, 0.5);
+                backdrop-filter: blur(40px);
+                border: rgba(255, 255, 255, 0.219) .1px solid;
+                border-radius: 20px;
+                opacity: 0;
+                display: none;
+                transition: 2s;
+                transition-delay: .6s;
+
+                #report-form{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 80%;
+
+                    .submit-button-container{
+                        
+                        .submit-login{
+                            padding: 1em 8em;
+                            background: linear-gradient(to left, rgb(255, 0, 140), purple);
+                            outline: none;
+                            border:none;
+                            border-radius: 15px;
+                            color: white;
+                            box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+                            cursor: pointer;
+                            transition: .2s;
+
+                            &:hover{
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                    
+                }
+
+                h1{
+                    position: absolute;
+                    top: 15%;
+                    color: white;
+                    font-family:'Montserrat';
+                    font-size: 2.5rem;
+                }
+
+                .report-form-exit-button{
                     position: absolute;
                     right: -5px;
                     top: -10px;
