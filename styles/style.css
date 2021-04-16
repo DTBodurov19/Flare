@@ -331,6 +331,36 @@ body .forms-overlay-container .form-overlay .report-form-container #mapid .leafl
   background: #2c3e50;
 }
 
+body .forms-overlay-container .form-overlay .report-form-container .map-exit-button {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 38%;
+  background: none;
+  border: none;
+  outline: none;
+  padding: .5em 1em;
+  font-size: 2em;
+  text-align: center;
+  color: white;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 10em;
+  background: rgba(50, 61, 109, 0.5);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  -webkit-transition: all .20s;
+  transition: all .20s;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container .map-exit-button:hover {
+  margin-bottom: 6px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+}
+
 body .forms-overlay-container .form-overlay .report-form-container #report-form {
   display: -webkit-box;
   display: -ms-flexbox;

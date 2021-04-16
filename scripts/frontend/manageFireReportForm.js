@@ -4,6 +4,8 @@ const reportButton = document.querySelector('.report-button');
 const reportFormExitButton = document.querySelector('.report-form-exit-button');
 const mapButton = document.querySelector('.location-button');
 const reportFormMap = document.querySelector('#mapid');
+const mapExitButton = document.querySelector('.map-exit-button');
+const reportFormLocationInput = document.querySelector('.location-input');
 
 reportButton.addEventListener('click', ()=>{
     loginFormOverlay.style.display = 'flex';
@@ -30,4 +32,11 @@ mapButton.addEventListener('click', (e) =>{
     reportForm.style.display = "none";
     reportFormMap.style.display = 'block';
     map.invalidateSize();
+})
+
+mapExitButton.addEventListener('click', () =>{
+    mapExitButton.style.display = 'none';
+    reportFormMap.style.display = 'none';
+    reportForm.style.display = 'flex';
+    reportFormLocationInput.value = `${lat} ${lng}`;
 })

@@ -21,4 +21,5 @@ formExitButton.addEventListener('click', ()=>{
     loginFormOverlay.classList.remove('form-bg-blur-animation');
     loginFormContainer.classList.remove('form-enter-animation');
     document.body.style.overflowY = 'scroll';
+    
 })
