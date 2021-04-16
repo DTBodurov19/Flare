@@ -36,17 +36,31 @@
                     <h1>Report A Fire</h1>
                     <form id="report-form">
         
-                        <div class="username-field">
-                            <input type="text" name="username" id="form-username"  class="input-field" autocomplete="off" placeholder="Username">
+                        <div class="names-field">
+                            <input type="text" name="First-name" class="report-input-field" autocomplete="off" placeholder="First Name">
+                            <input type="text" name="Sur-name" class="report-input-field" autocomplete="off" placeholder="Surname">
+                            <input type="text" name="Last-name" class="report-input-field" autocomplete="off" placeholder="Last Name">
                         </div>
-        
-                        <div class="password-field">
-                            <input type="password" name="password" id="form-password" class="input-field" autocomplete="off" placeholder="Password">
+
+                        <div class="location-field">
+                            <input type="text" name="telephone" class="report-input-field telephone" autocomplete="off" placeholder="Telephone Number">
+                            <button class="location-button">Choose Your Location</button>
+                            <p class="location-text"></p>  
+                            <input type="text" name="location" class="report-input-field location-input" autocomplete="off" placeholder="Enter Your Location">
                         </div>
-        
-        
+
+                        <div class="description-field">
+                            <textarea type="text" name="description" class="description" autocomplete="off" placeholder="Additional Information" rows="6" cols="60"></textarea>
+                        </div>
+
+                        <div class="type-field">
+                            <button class="small-fire">Small Fire</button>
+                            <button class="medium-fire">Medium Fire</button>
+                            <button class="large-fire">Large Fire</button>
+                        </div>
+
                         <div class="submit-button-container">
-                            <button class="submit-login">Sumbit Report</button>
+                            <button class="submit-report">Sumbit Report</button>
                         </div>
                     </form>
                 </div>
