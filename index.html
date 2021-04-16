@@ -5,7 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Flare</title>
+        <link rel="icon" href="img/icon.png">
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
     </head>
     <body>
         
@@ -32,10 +36,13 @@
                 </div>
 
                 <div class="report-form-container">
+
+                    <div id="mapid"></div>
+
                     <button class="report-form-exit-button">X</button>
                     <h1>Report A Fire</h1>
                     <form id="report-form">
-        
+
                         <div class="names-field">
                             <input type="text" name="First-name" class="report-input-field" autocomplete="off" placeholder="First Name">
                             <input type="text" name="Sur-name" class="report-input-field" autocomplete="off" placeholder="Surname">
@@ -54,9 +61,9 @@
                         </div>
 
                         <div class="type-field">
-                            <button class="small-fire">Small Fire</button>
-                            <button class="medium-fire">Medium Fire</button>
-                            <button class="large-fire">Large Fire</button>
+                            <button class="fire-button small">Small Fire</button>
+                            <button class="fire-button medium">Medium Fire</button>
+                            <button class="fire-button large">Large Fire</button>
                         </div>
 
                         <div class="submit-button-container">
@@ -118,7 +125,11 @@
 
         </section>
     </div>
-
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script type="text/javascript" src="scripts/frontend/leaflet.js"></script>
     <script src="scripts/frontend/butter.js"></script>
     <script>
     butter.init();

@@ -1,0 +1,35 @@
+
+
+var map = L.map('mapid', { minZoom: 10 }).setView([42.492985475830444, 27.465648651123047], 13);
+    
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+    var leafletIcon = L.icon ({
+        iconUrl: 'https://cdn1.iconfinder.com/data/icons/firefighters-filled-color/300/73621732Untitled-3-512.png',
+        iconSize: [38,38],
+        iconAnchor: [22,37],
+        popupAnchor: [2, -30]
+    });
+
+    var marker = L.marker([-84.78652542298238, -18.45703125], {icon:leafletIcon}).addTo(map);
+
+    map.on('click', function(e){
+    var coord = e.latlng;
+    var lat = coord.lat;
+    var lng = coord.lng;
+    marker.setLatLng(new L.LatLng(lat, lng)).bindPopup('You will report a fire HERE').openPopup();
+    });
+    
+    var current_position, current_accuracy;
+
+    function onLocationFound(e) {
+    if (current_position) {
+        map.removeLayer(current_position);
+        map.removeLayer(current_accuracy);
+    }
+
+    current_position = L.marker(e.latlng).addTo(map).bindPopup("You will report a fire HERE").openPopup();
+
+    }

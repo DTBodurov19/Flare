@@ -224,6 +224,32 @@ body{
                 display: none;
                 transition: 2s;
                 transition-delay: .6s;
+                
+                #mapid { 
+                    height: 100%;
+                    width: inherit;
+                    position: absolute;
+                    display: none;
+                    zoom: 100%;
+                    border-radius: 20px;
+        
+                .leaflet-popup-content-wrapper {
+                background:#2c3e50;
+                color:#fff;
+                font-size:16px;
+                line-height:24px;
+                }
+                .leaflet-popup-content-wrapper a {
+                color:rgba(255,255,255,0.5);
+                }
+                .leaflet-popup-tip-container {
+                width:30px;
+                height:15px;
+                }
+                .leaflet-popup-tip {
+                background:#2c3e50;
+                }
+            }
 
                 #report-form{
                     display: flex;
@@ -231,6 +257,7 @@ body{
                     align-items: center;
                     width: 80%;
                     margin-top: 4em;
+
 
                     .submit-button-container{
                         
@@ -258,12 +285,11 @@ body{
                     display: flex;
                     flex-direction: row;
                     justify-content: flex-start;
-                    margin-right: 2.5em;
                     margin-bottom: 1em;
-                }
 
-                .telephone{
-                    margin-right: 1.6em;
+                    &:nth-child(1){
+                        margin-right: 1em;
+                    }
                 }
 
                 .location-field{
@@ -271,7 +297,10 @@ body{
                     flex-direction: row;
                     justify-content: space-evenly;
                     margin-bottom: 1em;
-                    margin-right: 1.5em;
+
+                    .telephone{
+                        margin-right: 1.6em;
+                    }
 
                     .location-input{
                         margin-right: 1em;
@@ -320,6 +349,7 @@ body{
                         transition: .2s;
                         resize: none;
                         margin-bottom: 1em;
+                        font-family: 'Montserrat';
 
                         &::placeholder{
                             color:#9798b1;
@@ -336,9 +366,9 @@ body{
                 .type-field{
                     display: flex;
                     flex-direction: row;
-                    margin-bottom: 2ex;
+                    margin-bottom: 4ex;
 
-                    .small-fire{
+                    .fire-button{
                         padding: 1em 2em;
                         background: rgb(97, 38, 97);
                         outline: none;
@@ -355,42 +385,15 @@ body{
                         }
                     }
 
-                    .medium-fire{
-                        padding: 1em 2em;
-                        background: rgb(97, 38, 97);
-                        outline: none;
-                        border:none;
-                        border-radius: 15px;
-                        color: white;
-                        box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
-                        cursor: pointer;
-                        transition: .2s;
-                        font-size: 1.0em;
-                        margin-left: 1em;
-
-                        &:hover{
-                            box-shadow: none;
-                        }
+                    .small{
+                        margin-right: 1em;
                     }
 
-                    .large-fire{
-                        padding: 1em 2em;
-                        background: rgb(97, 38, 97);
-                        outline: none;
-                        border:none;
-                        border-radius: 15px;
-                        color: white;
-                        box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
-                        cursor: pointer;
-                        transition: .2s;
-                        font-size: 1.0em;
-                        margin-left: 1em;
-
-                        &:hover{
-                            box-shadow: none;
-                        }
+                    .medium{
+                        margin-right: 1em;
                     }
                 }
+            }
 
                 h1{
                     position: absolute;
@@ -536,8 +539,6 @@ body{
                 }
             }
         }
-
-    }
 
 
     @keyframes blurFormBackground{

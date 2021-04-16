@@ -302,6 +302,35 @@ body .forms-overlay-container .form-overlay .report-form-container {
           transition-delay: .6s;
 }
 
+body .forms-overlay-container .form-overlay .report-form-container #mapid {
+  height: 100%;
+  width: inherit;
+  position: absolute;
+  display: none;
+  zoom: 100%;
+  border-radius: 20px;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container #mapid .leaflet-popup-content-wrapper {
+  background: #2c3e50;
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container #mapid .leaflet-popup-content-wrapper a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body .forms-overlay-container .form-overlay .report-form-container #mapid .leaflet-popup-tip-container {
+  width: 30px;
+  height: 15px;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container #mapid .leaflet-popup-tip {
+  background: #2c3e50;
+}
+
 body .forms-overlay-container .form-overlay .report-form-container #report-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -349,12 +378,11 @@ body .forms-overlay-container .form-overlay .report-form-container .names-field 
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-right: 2.5em;
   margin-bottom: 1em;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .telephone {
-  margin-right: 1.6em;
+body .forms-overlay-container .form-overlay .report-form-container .names-field:nth-child(1) {
+  margin-right: 1em;
 }
 
 body .forms-overlay-container .form-overlay .report-form-container .location-field {
@@ -369,7 +397,10 @@ body .forms-overlay-container .form-overlay .report-form-container .location-fie
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   margin-bottom: 1em;
-  margin-right: 1.5em;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container .location-field .telephone {
+  margin-right: 1.6em;
 }
 
 body .forms-overlay-container .form-overlay .report-form-container .location-field .location-input {
@@ -430,6 +461,7 @@ body .forms-overlay-container .form-overlay .report-form-container .description-
   transition: .2s;
   resize: none;
   margin-bottom: 1em;
+  font-family: 'Montserrat';
 }
 
 body .forms-overlay-container .form-overlay .report-form-container .description-field .description::-webkit-input-placeholder {
@@ -463,10 +495,10 @@ body .forms-overlay-container .form-overlay .report-form-container .type-field {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-bottom: 2ex;
+  margin-bottom: 4ex;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .type-field .small-fire {
+body .forms-overlay-container .form-overlay .report-form-container .type-field .fire-button {
   padding: 1em 2em;
   background: #612661;
   outline: none;
@@ -481,54 +513,20 @@ body .forms-overlay-container .form-overlay .report-form-container .type-field .
   font-size: 1.0em;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .type-field .small-fire:hover {
+body .forms-overlay-container .form-overlay .report-form-container .type-field .fire-button:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .type-field .medium-fire {
-  padding: 1em 2em;
-  background: #612661;
-  outline: none;
-  border: none;
-  border-radius: 15px;
-  color: white;
-  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
-          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
-  cursor: pointer;
-  -webkit-transition: .2s;
-  transition: .2s;
-  font-size: 1.0em;
-  margin-left: 1em;
+body .forms-overlay-container .form-overlay .report-form-container .type-field .small {
+  margin-right: 1em;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .type-field .medium-fire:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+body .forms-overlay-container .form-overlay .report-form-container .type-field .medium {
+  margin-right: 1em;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .type-field .large-fire {
-  padding: 1em 2em;
-  background: #612661;
-  outline: none;
-  border: none;
-  border-radius: 15px;
-  color: white;
-  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
-          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
-  cursor: pointer;
-  -webkit-transition: .2s;
-  transition: .2s;
-  font-size: 1.0em;
-  margin-left: 1em;
-}
-
-body .forms-overlay-container .form-overlay .report-form-container .type-field .large-fire:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-body .forms-overlay-container .form-overlay .report-form-container h1 {
+body .forms-overlay-container .form-overlay h1 {
   position: absolute;
   top: 4%;
   color: white;
@@ -539,7 +537,7 @@ body .forms-overlay-container .form-overlay .report-form-container h1 {
   display: flex;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .report-form-exit-button {
+body .forms-overlay-container .form-overlay .report-form-exit-button {
   position: absolute;
   right: -5px;
   top: -10px;
@@ -558,21 +556,21 @@ body .forms-overlay-container .form-overlay .report-form-container .report-form-
   transition: .2s;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .report-form-exit-button:hover {
+body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   background: rgba(255, 255, 255, 0.425);
   padding: .9em 1.1em;
 }
 
-body .navbar {
+.navbar {
   color: #b6b6b6;
   font-family: 'Montserrat', sans-serif;
 }
 
-body .navbar .dashboard {
+.navbar .dashboard {
   display: none;
 }
 
-body .navbar ul {
+.navbar ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -582,12 +580,12 @@ body .navbar ul {
           flex-direction: row;
 }
 
-body .navbar ul #logo {
+.navbar ul #logo {
   width: 50%;
   margin-left: 5rem;
 }
 
-body .navbar ul .links {
+.navbar ul .links {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -603,12 +601,12 @@ body .navbar ul .links {
   margin-right: 5rem;
 }
 
-body .navbar ul .links li {
+.navbar ul .links li {
   list-style: none;
   padding: 25px 25px;
 }
 
-body .navbar ul .links li a {
+.navbar ul .links li a {
   color: #b6b6b6;
   text-decoration: none;
   -webkit-transition: color .3s;
@@ -616,15 +614,15 @@ body .navbar ul .links li a {
   z-index: 2;
 }
 
-body .navbar ul .links li a:visited {
+.navbar ul .links li a:visited {
   color: #b6b6b6;
 }
 
-body .navbar ul .links li a:hover {
+.navbar ul .links li a:hover {
   color: white;
 }
 
-body #home .report-button-container {
+#home .report-button-container {
   height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -637,7 +635,7 @@ body #home .report-button-container {
           align-items: center;
 }
 
-body #home .report-button-container .report-button {
+#home .report-button-container .report-button {
   background: none;
   border: none;
   outline: none;
@@ -657,13 +655,13 @@ body #home .report-button-container .report-button {
   transition: all .20s;
 }
 
-body #home .report-button-container .report-button:hover {
+#home .report-button-container .report-button:hover {
   margin-bottom: 6px;
   -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
           box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
 }
 
-body #footer .login-button-container {
+#footer .login-button-container {
   height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -676,7 +674,7 @@ body #footer .login-button-container {
           align-items: center;
 }
 
-body #footer .login-button-container .login-button {
+#footer .login-button-container .login-button {
   background: none;
   border: none;
   outline: none;
@@ -696,7 +694,7 @@ body #footer .login-button-container .login-button {
   transition: all .20s;
 }
 
-body #footer .login-button-container .login-button:hover {
+#footer .login-button-container .login-button:hover {
   margin-bottom: 6px;
   -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
           box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;

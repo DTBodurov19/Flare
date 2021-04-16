@@ -8,6 +8,9 @@ const reportFormContainer = document.querySelector('.report-form-container')
 const formExitButton = document.querySelector('.form-exit-button');
 const reportFormExitButton = document.querySelector('.report-form-exit-button');
 const reportButton = document.querySelector('.report-button');
+const mapButton = document.querySelector('.location-button');
+const reportFormMap = document.querySelector('#mapid');
+const reportForm = document.querySelector('#report-form');
 
 document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.pageX + 'px';
@@ -24,7 +27,7 @@ arr.forEach(item => {
     })
 })
 
-loginButton.addEventListener("click", ()=>{
+loginButton.addEventListener('click', ()=>{
     loginFormOverlay.style.display = 'flex';
     loginFormOverlay.style.opacity = '1';
     loginFormOverlay.style.zIndex = '10';
@@ -35,7 +38,7 @@ loginButton.addEventListener("click", ()=>{
     document.body.style.overflowY = 'hidden';
 })
 
-formExitButton.addEventListener("click", ()=>{
+formExitButton.addEventListener('click', ()=>{
     loginFormOverlay.style.display = '0';
     loginFormOverlay.style.opacity = '0';
     loginFormOverlay.style.zIndex = '-1';
@@ -44,7 +47,7 @@ formExitButton.addEventListener("click", ()=>{
     document.body.style.overflowY = 'scroll';
 })
 
-reportButton.addEventListener("click", ()=>{
+reportButton.addEventListener('click', ()=>{
     loginFormOverlay.style.display = 'flex';
     loginFormOverlay.style.opacity = '1';
     loginFormOverlay.style.zIndex = '10';
@@ -55,11 +58,18 @@ reportButton.addEventListener("click", ()=>{
     document.body.style.overflowY = 'hidden';
 })
 
-reportFormExitButton.addEventListener("click", ()=>{
+reportFormExitButton.addEventListener('click', ()=>{
     loginFormOverlay.style.display = '0';
     loginFormOverlay.style.opacity = '0';
     loginFormOverlay.style.zIndex = '-1';
     loginFormOverlay.classList.remove('form-bg-blur-animation');
     reportFormContainer.classList.remove('form-enter-animation');
     document.body.style.overflowY = 'scroll';
+})
+
+mapButton.addEventListener('click', (e) =>{
+    e.preventDefault();
+    reportForm.style.display = "none";
+    reportFormMap.style.display = 'block';
+    map.invalidateSize();
 })
