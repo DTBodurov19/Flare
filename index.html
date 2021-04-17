@@ -44,25 +44,28 @@
                     <form id="report-form">
 
                         <div class="names-field">
-                            <input type="text" name="First-name" class="report-input-field" autocomplete="off" placeholder="First Name">
-                            <input type="text" name="Sur-name" class="report-input-field" autocomplete="off" placeholder="Surname">
-                            <input type="text" name="Last-name" class="report-input-field" autocomplete="off" placeholder="Last Name">
+                            <input type="text" name="First-name" class="report-input-field" id ="report-fname" autocomplete="off" placeholder="First Name">
+                            <input type="text" name="Sur-name" class="report-input-field" id ="report-sname" autocomplete="off" placeholder="Surname">
+                            <input type="text" name="Last-name" class="report-input-field" id ="report-lname" autocomplete="off" placeholder="Last Name">
                         </div>
 
                         <div class="location-field">
-                            <input type="text" name="telephone" class="report-input-field telephone" autocomplete="off" placeholder="Telephone Number">
+                            <input type="text" name="telephone" class="report-input-field telephone" id = "phone-number" autocomplete="off" placeholder="Telephone Number">
                             <button class="location-button">Choose Your Location</button>
                             <p class="location-text"></p>  
-                            <input type="text" name="location" class="report-input-field location-input" autocomplete="off" placeholder="Enter Your Location">
+                            <input type="text" name="location" class="report-input-field location-input" id = "location" autocomplete="off" placeholder="Enter Your Location">
                         </div>
 
                         <div class="description-field">
-                            <textarea type="text" name="description" class="description" autocomplete="off" placeholder="Additional Information" rows="6" cols="60"></textarea>
+                            <textarea type="text" name="description" class="description" id="info" autocomplete="off" placeholder="Additional Information" rows="6" cols="60"></textarea>
                         </div>
 
                         <div class="type-field">
+                            <input type="radio" name = "fire" class="fire-button small" value="small">
                             <button class="fire-button small">Small Fire</button>
+                            <input type="radio" name = "fire" class="fire-button medium" value="medium">
                             <button class="fire-button medium">Medium Fire</button>
+                            <input type="radio" name = "fire" class="fire-button large" value="medium">
                             <button class="fire-button large">Large Fire</button>
                         </div>
 
@@ -143,6 +146,7 @@
     <script type="text/javascript" src="scripts/frontend/manageLoginForm.js"></script>
     <script type="text/javascript" src="scripts/frontend/loginManager.js"></script>
     <script type="text/javascript" src="scripts/frontend/manageFireReportForm.js"></script>
+    <script type="text/javascript" src="scripts/frontend/fireReportManager.js"></script>
     <script type="text/javascript" src="scripts/frontend/smoothScroll.js"></script>
     
 </body>

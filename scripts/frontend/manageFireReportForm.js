@@ -7,7 +7,8 @@ const reportFormMap = document.querySelector('#mapid');
 const mapExitButton = document.querySelector('.map-exit-button');
 const reportFormLocationInput = document.querySelector('.location-input');
 
-reportButton.addEventListener('click', ()=>{
+reportButton.addEventListener('click', (e)=>{
+    e.preventDefault();
     loginFormOverlay.style.display = 'flex';
     loginFormOverlay.style.opacity = '1';
     loginFormOverlay.style.zIndex = '10';
