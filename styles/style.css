@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -689,6 +689,36 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   margin-bottom: 6px;
   -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
           box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+}
+
+#info .info-text {
+  font-size: 20px;
+  font-family: 'Montserrat';
+  font-weight: lighter;
+}
+
+#info .chart-container-container {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#info .chart-container-container .chart-container {
+  height: 70%;
+  width: 80%;
+}
+
+#info .chart-container-container .chart-container #chart {
+  width: 100%;
 }
 
 #footer .login-button-container {

@@ -534,6 +534,30 @@ body{
             }
         }
 
+        #info{
+            .info-text{
+                font-size: 20px;
+                font-family: 'Montserrat';
+                font-weight: lighter;
+            }
+            .chart-container-container{
+                width: inherit;
+                height: inherit;
+                display: flex;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                .chart-container{
+                    height: 70%;
+                    width: 80%;
+
+                    #chart{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
         #footer{
 
             .login-button-container{
@@ -594,4 +618,4 @@ body{
         }
     }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap')
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
