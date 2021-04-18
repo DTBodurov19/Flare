@@ -62,7 +62,7 @@ class FireWorker {
   constructor(id, name, role) {
     if (typeof id !== 'number') throw new Error('id must be Number');
     if (typeof name !== 'string') throw new Error('name must be String');
-    if (typeof role !== 'string') throw new Error('name must be String');
+    if (typeof role !== 'string') throw new Error('role must be String');
 
    this.id = id;
    this.name = name;
