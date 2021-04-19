@@ -429,8 +429,10 @@ body .forms-overlay-container .form-overlay .report-form-container .location-fie
   margin-bottom: 1em;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .location-field .telephone {
+body .forms-overlay-container .form-overlay .report-form-container .location-field #phone-number {
   margin-right: 1.6em;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
 }
 
 body .forms-overlay-container .form-overlay .report-form-container .location-field .location-input {
@@ -525,34 +527,38 @@ body .forms-overlay-container .form-overlay .report-form-container .type-field {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 4ex;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .type-field .fire-button {
-  padding: 1em 2em;
-  background: #612661;
-  outline: none;
-  border: none;
-  border-radius: 15px;
+body .forms-overlay-container .form-overlay .report-form-container .type-field input[type="radio"] {
+  display: none;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container .type-field input[type="radio"]:checked + label {
+  background-color: #612661;
   color: white;
-  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
-          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+}
+
+body .forms-overlay-container .form-overlay .report-form-container .type-field label {
+  color: #612661;
+  font-family: 'Montserrat';
+  font-size: 1.5em;
+  border: 2px solid #612661;
+  border-radius: 5px;
+  padding: 10px 40px;
   cursor: pointer;
   -webkit-transition: .2s;
   transition: .2s;
-  font-size: 1.0em;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .type-field .fire-button:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-body .forms-overlay-container .form-overlay .report-form-container .type-field .small {
+body .forms-overlay-container .form-overlay .report-form-container .type-field label:nth-child(2) {
   margin-right: 1em;
 }
 
-body .forms-overlay-container .form-overlay .report-form-container .type-field .medium {
+body .forms-overlay-container .form-overlay .report-form-container .type-field label:nth-child(4) {
   margin-right: 1em;
 }
 

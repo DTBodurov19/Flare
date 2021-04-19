@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="location-field">
-                            <input type="text" name="telephone" class="report-input-field telephone" id = "phone-number" autocomplete="off" placeholder="Telephone Number">
+                            <input type="number" name="telephone" class="report-input-field telephone" id = "phone-number" autocomplete="off" placeholder="Telephone Number">
                             <button class="location-button">Choose Your Location</button>
                             <p class="location-text"></p>  
                             <input type="text" name="location" class="report-input-field location-input" id = "location" autocomplete="off" placeholder="Enter Your Location">
@@ -61,12 +61,9 @@
                         </div>
 
                         <div class="type-field">
-                            <input type="radio" name = "fire" class="fire-button small" value="small">
-                            <button class="fire-button small">Small Fire</button>
-                            <input type="radio" name = "fire" class="fire-button medium" value="medium">
-                            <button class="fire-button medium">Medium Fire</button>
-                            <input type="radio" name = "fire" class="fire-button large" value="medium">
-                            <button class="fire-button large">Large Fire</button>
+                            <input type="radio" name = "fire" class="fire-button small" id="small" value="small"> <label for="small">Small Fire</label>
+                            <input type="radio" name = "fire" class="fire-button medium" id="medium" value="medium"> <label for="medium">Medium Fire</label>
+                            <input type="radio" name = "fire" class="fire-button large" id="large" value="large"> <label for="large">Large Fire</label>
                         </div>
 
                         <div class="submit-button-container">
@@ -89,7 +86,7 @@
             <nav class="navbar">
                 <ul>
                     <div id="logo">
-                        <img src="img/Logo transparent.png" alt="logo" width = "30px">
+                        <img src="img/Logo_transparent.png" alt="logo" width = "30px">
                     </div>
                     
                     <div class="links">
