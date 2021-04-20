@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    
+    .site-container{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .events-container{
+            background:red;
+            height: 50vh;
+            width: 100%;
+
+            ol{
+                height: inherit;
+            }
+        }
+
+        .map-container{
+            height: 50vh;
+            width: 100%;
+
+            #map{
+                height:100%;
+                width: 100%;
+            }
+        }
+    }
+}

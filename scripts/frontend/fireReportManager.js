@@ -2,13 +2,11 @@ let reportFormData;
 
 function fillData(){
     reportFormData = {
-        name: {
-            fName: document.querySelector('#report-fname').value,
-            sName: document.querySelector('#report-sname').value,
-            lName: document.querySelector('#report-lname').value
-        },
-        phoneNumber: document.querySelector('#phone-number').value,
+        name: `${document.querySelector('#report-fname').value} ` + `${document.querySelector('#report-sname').value} ` + `${document.querySelector('#report-lname').value}`,
+        phoneNumber: `${document.querySelector('#phone-number').value}`,
         location: document.querySelector('#location').value,
+        long: `${lng}`,
+        lat: `${lat}`,
         info: document.querySelector('#info').value,
         type: document.querySelector('.fire-button').value
     };
