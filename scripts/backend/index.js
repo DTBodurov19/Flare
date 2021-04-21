@@ -237,7 +237,77 @@ class FireEventsManager {
   validateFireEvent (id) {
     const fireEvent = this.getFireEventByID(id);
 
+    if (fireEvent.state !== FireEventsManager.fireStates.unverified) throw new Error('Invalid FireEvent');
+
     fireEvent.state = FireEventsManager.fireStates.pending;
+
+    return fireEvent;
+  }
+
+  /**
+   * Engages operation on the specified FireEvent if it is eligible for that.
+   * @param {number} id The id of the FireEvent you want target.
+   * @param {Date} startOperationTime The time of start.
+   * @param {FireWorker} driver
+   * @param {FireWorker} fireFighter1
+   * @param {FireWorker} fireFighter2
+   * @returns {object} The fire event that was edited.
+   */
+  startOperationOnFireEvent (id, startOperationTime, driver, fireFighter1, fireFighter2) {
+    const fireEvent = this.getFireEventByID(id);
+    const workers = [driver, fireFighter1, fireFighter2];
+
+    if (fireEvent.state !== FireEventsManager.fireStates.pending) throw new Error('Invalid FireEvent');
+
+    if (!(startOperationTime instanceof Date)) throw new Error('StartOperationTime must be instance of Date class.');
+    if (!(driver instanceof FireWorker)) throw new Error('Driver must be instance of FireWorker class.');
+    if (!(fireFighter1 instanceof FireWorker)) throw new Error('FireFighter1 must be instance of FireWorker class.');
+    if (!(fireFighter2 instanceof FireWorker)) throw new Error('FireFighter2 must be instance of FireWorker class.');
+
+    fireEvent.startOperationTime = startOperationTime;
+    fireEvent.state = FireEventsManager.fireStates.inProgress;
+
+    for (const worker of workers) {
+      worker.changeAvailability(false);
+    }
+
+    fireEvent.driver = driver;
+    fireEvent.fireFighter1 = fireFighter1;
+    fireEvent.fireFighter2 = fireFighter2;
+
+    return fireEvent;
+  }
+
+  /**
+   * The final function in state-changing functions for the FireEvents. Makes copies of the workers by VALUE.
+   * @param {number} id 
+   * @param {Date} finishTime 
+   * @returns {object} The finished FireEvent.
+   */
+  finishOperationOnFireEvent (id, finishTime) {
+    const fireEvent = this.getFireEventByID(id);
+    const driver = fireEvent.driver;
+    const fireFighter1 = fireEvent.fireFighter1;
+    const fireFighter2 = fireEvent.fireFighter2;
+    const workers = [driver, fireFighter1, fireFighter2];
+
+    if (fireEvent.state !== FireEventsManager.fireStates.inProgress) throw new Error('Invalid FireEvent');
+    if (!(finishTime instanceof Date)) throw new Error('StartOperationTime must be instance of Date class.');
+
+    fireEvent.state = FireEventsManager.fireStates.finished;
+    fireEvent.finishTime = finishTime;
+
+    fireEvent.driver = new FireWorker(driver.id, driver.name, driver.role);
+    fireEvent.fireFighter1 = new FireWorker(fireFighter1.id, fireFighter1.name, fireFighter1.name);
+    fireEvent.fireFighter2 = new FireWorker(fireFighter2.id, fireFighter2.name, fireFighter2.name);
+
+    delete fireEvent.driver._isAvailable;
+    delete fireEvent.fireFighter1._isAvailable;
+    delete fireEvent.fireFighter2._isAvailable;
+
+    for (const worker of workers) {
+      worker.changeAvailability(true);
+    }
 
     return fireEvent;
   }
