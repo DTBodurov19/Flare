@@ -46,6 +46,93 @@ class AccountManager {
 }
 
 /**
+ * A class representing a FireTruck.
+ */
+class FireTruck {
+  _isAvailable = true;
+
+  /**
+   * Create a FireTruck.
+   * @param {string} licencePlate 
+   * @param {string} make 
+   * @param {string} model 
+   * @param {number} kmTraveled 
+   * @param {number} waterStorage 
+   */
+  constructor (licencePlate, make, model, kmTraveled, waterStorage) {
+    // implement regex check for licencePlate ex.: A 4056 AB
+
+    this.licencePlate = licencePlate;
+    this.make = make;
+    this.model = model;
+    this.kmTraveled = kmTraveled;
+    this.waterStorage = waterStorage;
+  }
+
+  get isAvailable () {
+    return this._isAvailable;
+  }
+
+  /**
+   * Changes the availability of the FireTruck.
+   * @param {boolean} toAvailable 
+   * @returns {number} The set value.
+   */
+   changeAvailability (toAvailable) {
+    if (this.isAvailable === toAvailable) throw new Error(`The fireTrucks availability is already\
+ set to: ${this.isAvailable}.`);
+    
+    this._isAvailable = toAvailable;
+
+    return this.isAvailable;
+  }
+}
+
+/**
+ * Class representing a manager for the FireTrucks.
+ */
+class FireTruckManager {
+  _fireTrucks = [];
+
+  get fireTrucks() {
+    return this._fireTrucks;  
+  }
+
+  /**
+   * Adds a new FireTruck instance to the list of fireTrucks.
+   * @param {FireTruck} fireTruck 
+   * @returns {FireTruck} The added fireTruck.
+   */
+  addNewFireTruck (fireTruck) {
+    if (!(fireTruck instanceof FireTruck)) throw new Error('FireTruck must be instance of FireTruck class.');
+
+    for (const cfireTruck of this._fireTrucks) {
+      if (cfireTruck.licencePlate === fireTruck.licencePlate) throw new Error(`There is already a FireTruck\
+ with the licence plate ${fireTruck.licencePlate}`);
+    }
+
+    this._fireTrucks.push(fireTruck);
+
+    return fireTruck;
+  }
+
+  /**
+   * Returns a FireTruck with the specified licence plate.
+   * @param {string} licencePlate 
+   * @returns {FireTruck} The FireTruck found.
+   */
+  getFireTruckByLicencePlate (licencePlate) {
+    if (typeof licencePlate !== 'string') throw new Error('Id must be a String.');
+
+    let fireTruck = this._fireTrucks.filter((fireTruck) => fireTruck.licencePlate === licencePlate)[0];
+
+    if (!(fireTruck instanceof FireTruck)) throw new Error('Could not find FireTruck with the specified licence plate.');
+
+    return fireTruck;
+  }
+}
+
+/**
  * Class representing a FireWorker.
  */
 class FireWorker {
@@ -57,7 +144,7 @@ class FireWorker {
    * @param {string} name - The name of the FireWorker.
    * @param {string} role - The job of the FireWorker.
    */
-  constructor(id, name, role) {
+  constructor (id, name, role) {
     if (typeof id !== 'number') throw new Error('Id must be Number.');
     if (typeof name !== 'string') throw new Error('Name must be String.');
     if (typeof role !== 'string') throw new Error('Role must be String.');
@@ -74,6 +161,7 @@ class FireWorker {
   /**
    * Changes the availability of the FireWorker.
    * @param {boolean} toAvailable 
+   * @returns {number} The set value.
    */
   changeAvailability(toAvailable) {
     if (this.isAvailable === toAvailable) throw new Error(`The workers availability is already\
@@ -251,9 +339,10 @@ class FireEventsManager {
    * @param {FireWorker} driver
    * @param {FireWorker} fireFighter1
    * @param {FireWorker} fireFighter2
+   * @param {FireTruck} fireTruck
    * @returns {object} The fire event that was edited.
    */
-  startOperationOnFireEvent (id, startOperationTime, driver, fireFighter1, fireFighter2) {
+  startOperationOnFireEvent (id, startOperationTime, driver, fireFighter1, fireFighter2, fireTruck) {
     const fireEvent = this.getFireEventByID(id);
     const workers = [driver, fireFighter1, fireFighter2];
 
@@ -263,6 +352,7 @@ class FireEventsManager {
     if (!(driver instanceof FireWorker)) throw new Error('Driver must be instance of FireWorker class.');
     if (!(fireFighter1 instanceof FireWorker)) throw new Error('FireFighter1 must be instance of FireWorker class.');
     if (!(fireFighter2 instanceof FireWorker)) throw new Error('FireFighter2 must be instance of FireWorker class.');
+    if (!(fireTruck instanceof FireTruck)) throw new Error('FireTruck must be instance of FireTruck class.');
 
     fireEvent.startOperationTime = startOperationTime;
     fireEvent.state = FireEventsManager.fireStates.inProgress;
@@ -271,9 +361,12 @@ class FireEventsManager {
       worker.changeAvailability(false);
     }
 
+    fireTruck.changeAvailability(false);
+
     fireEvent.driver = driver;
     fireEvent.fireFighter1 = fireFighter1;
     fireEvent.fireFighter2 = fireFighter2;
+    fireEvent.fireTruck = fireTruck;
 
     return fireEvent;
   }
@@ -282,32 +375,43 @@ class FireEventsManager {
    * The final function in state-changing functions for the FireEvents. Makes copies of the workers by VALUE.
    * @param {number} id 
    * @param {Date} finishTime 
+   * @param {number} newkmTraveled
    * @returns {object} The finished FireEvent.
    */
-  finishOperationOnFireEvent (id, finishTime) {
+  finishOperationOnFireEvent (id, finishTime, newkmTraveled) {
     const fireEvent = this.getFireEventByID(id);
     const driver = fireEvent.driver;
     const fireFighter1 = fireEvent.fireFighter1;
     const fireFighter2 = fireEvent.fireFighter2;
     const workers = [driver, fireFighter1, fireFighter2];
+    const fireTruck = fireEvent.fireTruck;
 
     if (fireEvent.state !== FireEventsManager.fireStates.inProgress) throw new Error('Invalid FireEvent');
     if (!(finishTime instanceof Date)) throw new Error('StartOperationTime must be instance of Date class.');
 
     fireEvent.state = FireEventsManager.fireStates.finished;
     fireEvent.finishTime = finishTime;
+    fireTruck.kmTraveled = newkmTraveled;
 
     fireEvent.driver = new FireWorker(driver.id, driver.name, driver.role);
     fireEvent.fireFighter1 = new FireWorker(fireFighter1.id, fireFighter1.name, fireFighter1.name);
     fireEvent.fireFighter2 = new FireWorker(fireFighter2.id, fireFighter2.name, fireFighter2.name);
+    fireEvent.fireTruck = new FireTruck(
+        fireTruck.licencePlate,
+        fireTruck.make,
+        fireTruck.model,
+        fireTruck.kmTraveled,
+        fireTruck.waterStorage);
 
     delete fireEvent.driver._isAvailable;
     delete fireEvent.fireFighter1._isAvailable;
     delete fireEvent.fireFighter2._isAvailable;
+    delete fireEvent.fireTruck._isAvailable;
 
     for (const worker of workers) {
       worker.changeAvailability(true);
     }
+    fireTruck.changeAvailability(true);
 
     return fireEvent;
   }
