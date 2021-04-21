@@ -617,6 +617,12 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -624,12 +630,65 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
 }
 
 .navbar ul #logo {
-  width: 50%;
-  margin-left: 5rem;
+  width: 100%;
+}
+
+.navbar ul .login-button-container {
+  list-style: none;
+  padding: 25px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar ul .login-button-container a {
+  color: #b6b6b6;
+  text-decoration: none;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+  z-index: 2;
+  display: none;
+}
+
+.navbar ul .login-button-container a:visited {
+  color: #b6b6b6;
+}
+
+.navbar ul .login-button-container a:hover {
+  color: white;
+}
+
+.navbar ul .login-button-container .login-button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: .2em .5em;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 5em;
+  background: rgba(50, 61, 109, 0.5);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  -webkit-transition: all .20s;
+  transition: all .20s;
+}
+
+.navbar ul .login-button-container .login-button:hover {
+  -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
 }
 
 .navbar ul .links {
-  width: 50%;
+  position: absolute;
+  left: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -637,10 +696,10 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  text-align: right;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  text-align: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   margin-right: 5rem;
 }
 
@@ -732,45 +791,6 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
 
 #info .chart-container-container .chart-container #chart {
   width: 100%;
-}
-
-#footer .login-button-container {
-  height: 90vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#footer .login-button-container .login-button {
-  background: none;
-  border: none;
-  outline: none;
-  padding: .5em 1em;
-  font-size: 2em;
-  text-align: center;
-  color: white;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
-          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
-  cursor: pointer;
-  border-radius: 20px;
-  width: 10em;
-  background: rgba(50, 61, 109, 0.5);
-  -webkit-backdrop-filter: blur(30px);
-          backdrop-filter: blur(30px);
-  -webkit-transition: all .20s;
-  transition: all .20s;
-}
-
-#footer .login-button-container .login-button:hover {
-  margin-bottom: 6px;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
-          box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
 }
 
 @-webkit-keyframes blurFormBackground {

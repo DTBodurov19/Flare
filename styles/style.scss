@@ -478,19 +478,65 @@ body{
             
             ul{
                 display: flex;
+                justify-content: center;
+                align-items: center;
                 flex-direction: row;
 
                 #logo{
-                    width:50%;
-                    margin-left: 5rem;
+                    width:100%;
+                }
+
+                .login-button-container{
+                        list-style: none;
+                        padding: 25px 25px;
+                        display: flex;
+                        align-items: center;
+
+                        a{                        
+                            color:rgb(182, 182, 182);   
+                            text-decoration: none;
+                            transition: color .3s;
+                            z-index: 2;
+                            display: none;
+                            
+                            &:visited{
+                                color:rgb(182, 182, 182);
+                            }
+
+                            &:hover{
+                                color: white;
+                            }
+                        }
+                    
+                    .login-button{
+                        background: none;
+                        border:none;
+                        outline: none;
+                        padding: .2em .5em;
+                        font-size: 1.5em;
+                        text-align: center;
+                        color: white;
+                        box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                        cursor: pointer;
+                        border-radius: 20px;
+                        width: 5em;
+                        background: rgba(50, 61, 109, 0.5);
+                        backdrop-filter: blur(30px);
+                        transition: all .20s;
+            
+                        &:hover{
+                            box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+                        }
+                    }
                 }
 
                 .links{
-                    width: 50%;
+                    position: absolute;
+                    left: 40%;
                     display: flex;
                     flex-direction: row;
-                    text-align: right;
-                    justify-content: flex-end;
+                    text-align: center;
+                    justify-content: flex-start;
                     margin-right: 5rem;
                     
                     
@@ -567,38 +613,6 @@ body{
 
                     #chart{
                         width: 100%;
-                    }
-                }
-            }
-        }
-
-        #footer{
-
-            .login-button-container{
-                height: 90vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .login-button{
-                    background: none;
-                    border:none;
-                    outline: none;
-                    padding: .5em 1em;
-                    font-size: 2em;
-                    text-align: center;
-                    color: white;
-                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
-                    cursor: pointer;
-                    border-radius: 20px;
-                    width: 10em;
-                    background: rgba(50, 61, 109, 0.5);
-                    backdrop-filter: blur(30px);
-                    transition: all .20s;
-        
-                    &:hover{
-                        margin-bottom: 6px;
-                        box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
                     }
                 }
             }

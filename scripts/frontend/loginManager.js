@@ -2,7 +2,8 @@ const loginForm = document.getElementById('log-in-form');
 const usernameField = document.getElementById('form-username');
 const passwordField = document.getElementById('form-password');
 const messageElement = document.getElementById('message');
-const workersButton = document.querySelector('.dashboard');
+const dispatcherButton = document.querySelector('.dispatcher');
+const submitButton = document.querySelector('.login-button');
 const accManager = new AccountManager;
 
 function validateForm(accmanager, username, password){
@@ -10,8 +11,10 @@ function validateForm(accmanager, username, password){
 }
 
 function grantAccess(activeUser){
-    if(activeUser === 'Dispatcher');
-    workersButton.style.display = 'block';
+    if (activeUser === 'Dispatcher') {
+        dispatcherButton.style.display = 'flex';
+        submitButton.style.display = 'none';
+    }
 }
 
 loginForm.addEventListener('submit', (e) =>{
@@ -32,4 +35,3 @@ loginForm.addEventListener('submit', (e) =>{
         passwordField.value = ''; 
     }
 });
-
