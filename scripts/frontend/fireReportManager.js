@@ -8,7 +8,7 @@ function getActiveFireButton(){
     fireSizeButtons.forEach(radio =>{
         if(radio.checked)
         {
-            checkedButton = `${radio.value}`;
+            checkedButton = +radio.value;
         }
     });
 
@@ -48,7 +48,7 @@ reportForm.addEventListener('submit', (e) => {
     fillData();
     checkEmpty();
     fireEventManager.addNewFireEvent(
-        1,
+        getActiveFireButton(),
         new Date(),
         [reportFormData.lat, reportFormData.long],
         reportFormData.info,
