@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -791,6 +791,94 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
 
 #info .chart-container-container .chart-container #chart {
   width: 100%;
+}
+
+#team .team-cards-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+#team .team-cards-container .card-hover {
+  -webkit-transform: rotateX(11deg) rotateY(-44deg);
+          transform: rotateX(11deg) rotateY(-44deg);
+}
+
+#team .team-cards-container .team-card {
+  position: absolute;
+  top: 15px;
+  width: 355px;
+  height: 220px;
+  border-radius: 35px;
+  border: 1px rgba(255, 255, 255, 0.342) solid;
+  -webkit-transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+}
+
+#team .team-cards-container .team-card h1 {
+  position: absolute;
+  top: 8%;
+  left: 6%;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+#team .team-cards-container .cards-parent-element {
+  position: relative;
+  width: 700px;
+  height: 300px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-perspective-origin: 43% 50%;
+          perspective-origin: 43% 50%;
+}
+
+#team .team-cards-container .frontend-card {
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4ccfd6), to(#6a45e0));
+  background: linear-gradient(#4ccfd6 0%, #6a45e0 100%);
+}
+
+#team .team-cards-container .designer-card {
+  top: 20px;
+  left: 200px;
+  z-index: 3;
+  background: radial-gradient(100% 128.38% at 100% 100%, rgba(51, 168, 253, 0.2) 0%, rgba(76, 0, 200, 0.2) 100%);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+
+#team .team-cards-container .backend-card {
+  top: 40px;
+  left: 280px;
+  z-index: 2;
+  background: radial-gradient(100% 128.38% at 100% 100%, rgba(51, 168, 253, 0.2) 0%, rgba(76, 0, 200, 0.2) 100%);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+
+#team .team-cards-container .scrum-card {
+  top: 60px;
+  left: 310px;
+  z-index: 1;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4ccfd6), to(#6a45e0));
+  background: linear-gradient(#4ccfd6 0%, #6a45e0 100%);
 }
 
 @-webkit-keyframes blurFormBackground {

@@ -618,6 +618,82 @@ body{
             }
         }
 
+        #team{
+
+            .team-cards-container{
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                justify-self: center;
+                align-items: center;
+                align-self: center;
+
+                .card-hover {
+                    transform: rotateX(11deg) rotateY(-44deg);
+                }
+                
+
+                .team-card{
+                    position: absolute;
+                    top: 15px;
+                    width: 355px;
+                    height: 220px;
+                    border-radius: 35px;
+                    border: 1px rgba(255, 255, 255, 0.342) solid;
+                    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+
+                    h1{
+                        position: absolute;
+                        top: 8%;
+                        left: 6%;
+                        font-size: 22px;
+                        font-weight: 400;
+                    }
+
+                    
+                }
+                
+                .cards-parent-element{
+                    position: relative;
+                    width: 700px;
+                    height: 300px;
+                    perspective: 1000px;
+                    perspective-origin: 43% 50%;
+                }
+                
+                .frontend-card{
+                    top: 0;
+                    left: 0;
+                    z-index: 4;
+                    background: linear-gradient(rgb(76, 207, 214) 0%, rgb(106, 69, 224) 100%);
+                }
+
+                .designer-card{
+                    top: 20px;
+                    left: 200px;
+                    z-index: 3;
+                    background: radial-gradient(100% 128.38% at 100% 100%, rgba(51, 168, 253, 0.2) 0%, rgba(76, 0, 200, 0.2) 100%);
+                    backdrop-filter: blur(20px);
+                }
+
+                .backend-card{
+                    top: 40px;
+                    left: 280px;
+                    z-index: 2;
+                    background: radial-gradient(100% 128.38% at 100% 100%, rgba(51, 168, 253, 0.2) 0%, rgba(76, 0, 200, 0.2) 100%);
+                    backdrop-filter: blur(20px);
+                }
+
+                .scrum-card{
+                    top: 60px;
+                    left: 310px;
+                    z-index: 1;
+                    background: linear-gradient(rgb(76, 207, 214) 0%, rgb(106, 69, 224) 100%);
+                }
+            }
+        }
+
 
     @keyframes blurFormBackground{
         0%{
@@ -646,4 +722,4 @@ body{
         }
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap');
