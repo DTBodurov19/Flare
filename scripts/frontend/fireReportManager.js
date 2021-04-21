@@ -1,4 +1,5 @@
 let reportFormData;
+const FEM = new FireEventsManager;
 
 function fillData(){
     reportFormData = {
@@ -13,15 +14,8 @@ function fillData(){
 }
 
 function checkEmpty() {
-    if (reportFormData.name.fName == "") {
-        alert("Enter your first name");
-        
-    }
-    else if (reportFormData.name.sName == "") {
-        alert("Enter your surname");
-    }
-    else if (reportFormData.name.lName == "") {
-        alert("Enter your last name");
+    if (reportFormData.name == "") {
+        alert("Enter your name");
     }
     else if (reportFormData.phoneNumber == "") {
         alert("Enter your phone number");
@@ -40,4 +34,12 @@ reportForm.addEventListener('submit', (e) => {
     e.preventDefault();
     fillData();
     checkEmpty();
+    FEM.addNewFireEvent(
+        1,
+        new Date(),
+        [reportFormData.lat, reportFormData.long],
+        reportFormData.info,
+        reportFormData.phoneNumber,
+        reportFormData.name);
+    console.log(FEM.fireEvents);
 });
