@@ -1,5 +1,19 @@
 let reportFormData;
 const FEM = new FireEventsManager;
+const fireSizeButtons = document.getElementsByName('fire');
+    
+
+function getActiveFireButton(){
+    let checkedButton;
+    fireSizeButtons.forEach(radio =>{
+        if(radio.checked)
+        {
+            checkedButton = `${radio.value}`;
+        }
+    });
+
+    return checkedButton;
+}
 
 function fillData(){
     reportFormData = {
@@ -9,7 +23,7 @@ function fillData(){
         long: `${lng}`,
         lat: `${lat}`,
         info: document.querySelector('#info').value,
-        type: document.querySelector('.fire-button').value
+        type: getActiveFireButton()
     };
 }
 

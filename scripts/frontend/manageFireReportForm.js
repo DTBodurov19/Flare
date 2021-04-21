@@ -16,6 +16,7 @@ reportButton.addEventListener('click', (e)=>{
     reportFormContainer.classList.add('form-enter-animation');
     reportFormContainer.style.display = 'flex';
     loginFormContainer.style.display = 'none';
+    reportForm.style.display = 'flex';
     document.body.style.overflowY = 'hidden';
 })
 
@@ -25,12 +26,13 @@ reportFormExitButton.addEventListener('click', ()=>{
     loginFormOverlay.style.zIndex = '-1';
     loginFormOverlay.classList.remove('form-bg-blur-animation');
     reportFormContainer.classList.remove('form-enter-animation');
+    reportFormMap.style.display = 'none';
     document.body.style.overflowY = 'scroll';
 })
 
 mapButton.addEventListener('click', (e) =>{
     e.preventDefault();
-    reportForm.style.display = "none";
+    reportForm.style.display = 'none';
     reportFormMap.style.display = 'block';
     map.invalidateSize();
 })
