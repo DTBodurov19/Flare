@@ -1,5 +1,5 @@
 let reportFormData;
-const FEM = new FireEventsManager;
+const fireEventManager = new FireEventsManager;
 const fireSizeButtons = document.getElementsByName('fire');
     
 
@@ -43,17 +43,16 @@ function checkEmpty() {
     }
 }
 
-
 reportForm.addEventListener('submit', (e) => {
     e.preventDefault();
     fillData();
     checkEmpty();
-    FEM.addNewFireEvent(
+    fireEventManager.addNewFireEvent(
         1,
         new Date(),
         [reportFormData.lat, reportFormData.long],
         reportFormData.info,
         reportFormData.phoneNumber,
         reportFormData.name);
-    console.log(FEM.fireEvents);
+    console.log(fireEventManager.fireEvents);
 });

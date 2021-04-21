@@ -24,10 +24,6 @@ section {
   background: rgba(252, 252, 252, 0.062);
 }
 
-.error {
-  color: red;
-}
-
 .input-field {
   margin-bottom: 15px;
   outline: none;
@@ -205,6 +201,16 @@ body .forms-overlay-container .form-overlay .log-in-form-container {
   transition: 2s;
   -webkit-transition-delay: .6s;
           transition-delay: .6s;
+}
+
+body .forms-overlay-container .form-overlay .log-in-form-container .message-container {
+  position: absolute;
+  bottom: 15px;
+}
+
+body .forms-overlay-container .form-overlay .log-in-form-container .message-container #message {
+  font-family: 'Montserrat';
+  color: white;
 }
 
 body .forms-overlay-container .form-overlay .log-in-form-container #log-in-form {
@@ -590,6 +596,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button {
   font-size: 1em;
   -webkit-transition: .2s;
   transition: .2s;
+  z-index: 1000;
 }
 
 body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
