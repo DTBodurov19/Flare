@@ -60,7 +60,7 @@ class FireTruck {
    * @param {number} waterStorage 
    */
   constructor (licencePlate, make, model, kmTraveled, waterStorage) {
-    if (!(/^[A-Z] \d{4} [A-Z]{2}$/.test(licencePlate))) throw new Error('Invalid licence plate');
+    if (!FireTruck.validateLicencePlate(licencePlate)) throw new Error('Invalid licence plate');
 
     this.licencePlate = licencePlate;
     this.make = make;
@@ -71,6 +71,20 @@ class FireTruck {
 
   get isAvailable () {
     return this._isAvailable;
+  }
+
+  /**
+   * A static function of the FireTruck class. Matches the licence plate against a regex to check it's validity
+   * for the region of Burgas.
+   * @param {string} licencePlate 
+   * @returns {boolean} true if the licence plate is correct. Else returns false.
+   */
+  static validateLicencePlate (licencePlate) {
+    if (typeof licencePlate !== 'string') throw new Error('Licence plate must be a string.');
+
+    const regExTest = /^[A-Z] \d{4} [A-Z]{2}$/;
+
+    return regExTest.test(licencePlate);
   }
 
   /**
@@ -93,9 +107,14 @@ class FireTruck {
  */
 class FireTruckManager {
   _fireTrucks = [];
+  _removedFireTrucks = [];
 
   get fireTrucks() {
     return this._fireTrucks;  
+  }
+
+  get removedFireTrucks() {
+    return this._removedFireTrucks;
   }
 
   /**
@@ -123,12 +142,35 @@ class FireTruckManager {
    */
   getFireTruckByLicencePlate (licencePlate) {
     if (typeof licencePlate !== 'string') throw new Error('Id must be a String.');
+    if (!FireTruck.validateLicencePlate(licencePlate)) throw new Error('Invalid licence plate');
 
     let fireTruck = this._fireTrucks.filter((fireTruck) => fireTruck.licencePlate === licencePlate)[0];
 
-    if (!(fireTruck instanceof FireTruck)) throw new Error('Could not find FireTruck with the specified licence plate.');
+    if (!(fireTruck instanceof FireTruck)) throw new Error('Could not find FireTruck with this licence plate.');
 
     return fireTruck;
+  }
+
+  /**
+   * A fucntion to remvoe a FireTruck from the list.
+   * The FireTruck must not be currently in use for it to be removed.
+   * @param {string} licencePlate 
+   * @returns The removed FireTruck.
+   */
+  removeFireTruck (licencePlate) {
+    if (typeof licencePlate !== 'string') throw new Error('Id must be a String.');
+    if (!FireTruck.validateLicencePlate(licencePlate)) throw new Error('Invalid licence plate');
+
+    for (const fireTruckIndex in this._fireTrucks) {
+      if (this.fireTrucks[fireTruckIndex].licencePlate === licencePlate && 
+          this.fireTrucks[fireTruckIndex].isAvailable === true) {
+        this._removedFireTrucks.push(...this._fireTrucks.splice(fireTruckIndex, 1));
+        
+        return this.removedFireTrucks[0];
+      }
+    }
+
+    throw new Error('Failed to remove FireTruck.');
   }
 }
 
