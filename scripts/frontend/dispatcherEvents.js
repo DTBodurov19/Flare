@@ -48,7 +48,7 @@ function getEvents(events) {
   for(const button of validateButtons) {
     button.addEventListener('click', () => {
     validateEvent(button);
-    getEvents(fireEventsManager.fireEvents);
+    getEvents(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.unverified));
   });
   }
 
@@ -61,3 +61,5 @@ function getEvents(events) {
 }
 
 window.onload = getEvents(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.unverified));
+
+console.log(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.unverified));
