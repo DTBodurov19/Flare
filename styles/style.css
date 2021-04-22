@@ -813,7 +813,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
       align-self: center;
 }
 
-#team .team-cards-container .card-hover {
+#team .team-cards-container .card-wrapper-hover {
   -webkit-transform: rotateX(11deg) rotateY(-44deg);
           transform: rotateX(11deg) rotateY(-44deg);
 }
@@ -879,6 +879,10 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   z-index: 1;
   background: -webkit-gradient(linear, left top, left bottom, from(#4ccfd6), to(#6a45e0));
   background: linear-gradient(#4ccfd6 0%, #6a45e0 100%);
+}
+
+#team .team-cards-container .card-hover {
+  top: -20px;
 }
 
 @-webkit-keyframes blurFormBackground {
