@@ -109,11 +109,11 @@ class FireTruckManager {
   _fireTrucks = [];
   _removedFireTrucks = [];
 
-  get fireTrucks() {
+  get fireTrucks () {
     return this._fireTrucks;  
   }
 
-  get removedFireTrucks() {
+  get removedFireTrucks () {
     return this._removedFireTrucks;
   }
 
@@ -141,7 +141,7 @@ class FireTruckManager {
    * @returns {FireTruck} The FireTruck found.
    */
   getFireTruckByLicencePlate (licencePlate) {
-    if (typeof licencePlate !== 'string') throw new Error('Id must be a String.');
+    if (typeof licencePlate !== 'string') throw new Error('Licence plate must be a String.');
     if (!FireTruck.validateLicencePlate(licencePlate)) throw new Error('Invalid licence plate');
 
     let fireTruck = this._fireTrucks.filter((fireTruck) => fireTruck.licencePlate === licencePlate)[0];
@@ -158,15 +158,17 @@ class FireTruckManager {
    * @returns The removed FireTruck.
    */
   removeFireTruck (licencePlate) {
-    if (typeof licencePlate !== 'string') throw new Error('Id must be a String.');
+    if (typeof licencePlate !== 'string') throw new Error('Licence plate must be a String.');
     if (!FireTruck.validateLicencePlate(licencePlate)) throw new Error('Invalid licence plate');
 
     for (const fireTruckIndex in this._fireTrucks) {
       if (this.fireTrucks[fireTruckIndex].licencePlate === licencePlate && 
           this.fireTrucks[fireTruckIndex].isAvailable === true) {
         this._removedFireTrucks.push(...this._fireTrucks.splice(fireTruckIndex, 1));
-        
-        return this.removedFireTrucks[0];
+
+        delete this.removedFireTrucks[this.removedFireTrucks.length - 1]._isAvailable;
+
+        return this.removedFireTrucks[this.removeFireTruck.length - 1];
       }
     }
 
@@ -220,9 +222,14 @@ class FireWorker {
  */
 class WorkerManager {
   _workers = [];
+  _removedWorkers = [];
 
   get workers () {
     return this._workers;
+  }
+
+  get removedWorkers () {
+    return this._removedWorkers;
   }
 
   /**
@@ -264,6 +271,29 @@ class WorkerManager {
     if (!(worker instanceof FireWorker)) throw new Error(`Could not find worker with id ${id}.`);
 
     return worker;
+  }
+
+  /**
+   * A function to remove a FireWorker from the list.
+   * The FireWorker must be available to be removed.
+   * @param {number} id 
+   * @returns {FireWorker} the worker that was removed.
+   */
+  removeWorker (id) {
+    if (typeof id !== 'number') throw new Error('Id must be a number.');
+
+    for (const workerIndex in this._workers) {
+      if (this._workers[workerIndex].id === id &&
+          this._workers[workerIndex].isAvailable === true) {
+        this._removedWorkers.push(...this._workers.splice(workerIndex, 1));
+
+        delete this.removedWorkers[this.removedWorkers.length - 1]._isAvailable;
+
+        return this.removedWorkers[this.removedWorkers.length - 1];
+      }
+    }
+
+    throw new Error('Could not remove worker.');
   }
 }
 
