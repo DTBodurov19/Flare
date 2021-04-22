@@ -354,6 +354,11 @@ class FireEventsManager {
     if (!(fireFighter2 instanceof FireWorker)) throw new Error('FireFighter2 must be instance of FireWorker class.');
     if (!(fireTruck instanceof FireTruck)) throw new Error('FireTruck must be instance of FireTruck class.');
 
+    if (driver.isAvailable === false) throw new Error('Driver is unavailable.');
+    if (fireFighter1.isAvailable === false) throw new Error('Firefighter1 is unavailable.');
+    if (fireFighter2.isAvailable === false) throw new Error('Firefighter2 is unavailable.');
+    if (fireTruck.isAvailable === false) throw new Error('Firetruck is unavailable.')
+
     fireEvent.startOperationTime = startOperationTime;
     fireEvent.state = FireEventsManager.fireStates.inProgress;
 
@@ -388,6 +393,8 @@ class FireEventsManager {
 
     if (fireEvent.state !== FireEventsManager.fireStates.inProgress) throw new Error('Invalid FireEvent');
     if (!(finishTime instanceof Date)) throw new Error('StartOperationTime must be instance of Date class.');
+
+    if (fireTruck.kmTraveled > newkmTraveled) throw new Error('Invalid newkmTraveled.');
 
     fireEvent.state = FireEventsManager.fireStates.finished;
     fireEvent.finishTime = finishTime;
