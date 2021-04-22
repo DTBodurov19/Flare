@@ -628,6 +628,32 @@ body{
                 justify-self: center;
                 align-items: center;
                 align-self: center;
+                width: 100%;
+                height: 100%;
+
+                .card-exit-button {
+                    position: absolute;
+                    right: -100px;
+                    top: -15px;
+                    cursor:pointer;
+                    background: none;
+                    outline:none;
+                    border:none;
+                    border-radius: 50px;
+                    padding: .6em .8em;
+                    background: rgba(255, 255, 255, 0.144);
+                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                    color: white;
+                    font-size: 1em;
+                    transition: .2s;
+                    z-index: 1000;
+                    display: none;
+
+                    &:hover{
+                        background: rgba(255, 255, 255, 0.425);
+                        padding: .9em 1.1em;
+                    }
+                }
 
                 .card-wrapper-hover {
                     transform: rotateX(11deg) rotateY(-44deg);
@@ -646,20 +672,28 @@ body{
                     h1{
                         position: absolute;
                         top: 8%;
-                        left: 6%;
+                        right: 6%;
                         font-size: 22px;
                         font-weight: 400;
                     }
 
-                    
+                    .card-about-text{
+                        position: absolute;
+                        top: 50%;
+                        left: 0%;
+                        display: none;
+                    }
                 }
                 
+
                 .cards-parent-element{
-                    position: relative;
+                    position: absolute;
+                    left: 30%;
                     width: 700px;
                     height: 300px;
-                    perspective: 1000px;
-                    perspective-origin: 43% 50%;
+                    perspective: 2000px;
+                    perspective-origin: 50% 50%;
+                    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
                 }
                 
                 .frontend-card{
@@ -694,6 +728,15 @@ body{
 
                 .card-hover{
                     top: -20px;
+                    cursor: pointer;
+                }
+
+                .card-selected {
+                    position: relative;
+                    width: 800px;
+                    height: 400px;
+                    left: 1%;
+                    z-index: 15;
                 }
             }
         }
