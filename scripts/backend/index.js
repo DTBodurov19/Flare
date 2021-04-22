@@ -117,6 +117,20 @@ class FireTruckManager {
     return this._removedFireTrucks;
   }
 
+  constructor(localStorage) {
+    if (localStorage === undefined) throw new Error('Please provide local storage.');
+
+    if (localStorage.hasOwnProperty('_fireTrucks')) {
+      this._fireTrucks = JSON.parse(localStorage._fireTrucks);
+    }
+
+    if (localStorage.hasOwnProperty('_removedFireTrucks')) {
+      this._removedFireTrucks = JSON.parse(localStorage._removedFireTrucks);
+    }
+
+    this._localStorage = localStorage;
+  }
+
   /**
    * Adds a new FireTruck instance to the list of fireTrucks.
    * @param {FireTruck} fireTruck 
@@ -131,6 +145,7 @@ class FireTruckManager {
     }
 
     this._fireTrucks.push(fireTruck);
+    this._localStorage._fireTrucks = JSON.stringify(this._fireTrucks);
 
     return fireTruck;
   }
@@ -167,6 +182,9 @@ class FireTruckManager {
         this._removedFireTrucks.push(...this._fireTrucks.splice(fireTruckIndex, 1));
 
         delete this.removedFireTrucks[this.removedFireTrucks.length - 1]._isAvailable;
+
+        this._localStorage._fireTrucks = JSON.stringify(this._fireTrucks);
+        this._localStorage._removedFireTrucks = JSON.stringify(this._removedFireTrucks);
 
         return this.removedFireTrucks[this.removeFireTruck.length - 1];
       }
@@ -232,6 +250,20 @@ class WorkerManager {
     return this._removedWorkers;
   }
 
+  constructor(localStorage) {
+    if (localStorage === undefined) throw new Error('Please provide local storage.');
+
+    if (localStorage.hasOwnProperty('_workers')) {
+      this._workers = JSON.parse(localStorage._workers);
+    }
+
+    if (localStorage.hasOwnProperty('_removedWorkers')) {
+      this._removedWorkers = JSON.parse(localStorage._removedWorkers);
+    }
+
+    this._localStorage = localStorage;
+  }
+
   /**
    * Adds a new FireWorker instance to the workers array.
    * @param {FireWorker} FireWorker - Provide an instance of the class FireWorker.
@@ -244,6 +276,8 @@ class WorkerManager {
     });
 
     this._workers.push(worker);
+
+    this._localStorage._workers = JSON.stringify(this._workers);
 
     return worker;
   }
@@ -283,11 +317,16 @@ class WorkerManager {
     if (typeof id !== 'number') throw new Error('Id must be a number.');
 
     for (const workerIndex in this._workers) {
-      if (this._workers[workerIndex].id === id &&
-          this._workers[workerIndex].isAvailable === true) {
+      if (
+        this._workers[workerIndex].id === id &&
+        this._workers[workerIndex].isAvailable === true
+      ) {
         this._removedWorkers.push(...this._workers.splice(workerIndex, 1));
 
         delete this.removedWorkers[this.removedWorkers.length - 1]._isAvailable;
+
+        this._localStorage._workers = JSON.stringify(this._workers);
+        this._localStorage._removedWorkers = JSON.stringify(this._removedWorkers);
 
         return this.removedWorkers[this.removedWorkers.length - 1];
       }
@@ -317,6 +356,20 @@ class FireEventsManager {
     inProgress: 'inProgress',
     finished: 'finished',
   };
+
+  constructor(localStorage) {
+    if (localStorage === undefined) throw new Error('Please provide local storage.');
+
+    if (localStorage.hasOwnProperty('_fireEvents')) {
+      this._fireEvents = JSON.parse(localStorage._fireEvents);
+    }
+
+    if (localStorage.hasOwnProperty('_currentFireEventID')) {
+      this._currentFireEventID = JSON.parse(localStorage._currentFireEventID);
+    }
+
+    this._localStorage = localStorage;
+  }
 
   /**
    * A function to submit a new FireEvent.
@@ -352,8 +405,10 @@ class FireEventsManager {
     };
 
     this._currentFireEventID++;
-
     this._fireEvents.push(newFireEvent);
+
+    this._localStorage._currentFireEventID = JSON.stringify(this._currentFireEventID);
+    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
 
     return newFireEvent;
   }
@@ -401,6 +456,8 @@ class FireEventsManager {
 
     fireEvent.state = FireEventsManager.fireStates.pending;
 
+    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
+
     return fireEvent;
   }
 
@@ -444,6 +501,8 @@ class FireEventsManager {
     fireEvent.fireFighter1 = fireFighter1;
     fireEvent.fireFighter2 = fireFighter2;
     fireEvent.fireTruck = fireTruck;
+
+    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
 
     return fireEvent;
   }
@@ -491,6 +550,8 @@ class FireEventsManager {
       worker.changeAvailability(true);
     }
     fireTruck.changeAvailability(true);
+
+    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
 
     return fireEvent;
   }
