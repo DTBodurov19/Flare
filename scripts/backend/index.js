@@ -60,7 +60,7 @@ class FireTruck {
    * @param {number} waterStorage 
    */
   constructor (licencePlate, make, model, kmTraveled, waterStorage) {
-    // implement regex check for licencePlate ex.: A 4056 AB
+    if (!(/^[A-Z] \d{4} [A-Z]{2}$/.test(licencePlate))) throw new Error('Invalid licence plate');
 
     this.licencePlate = licencePlate;
     this.make = make;
