@@ -1,17 +1,18 @@
-const FireEventsManager1 = new FireEventsManager(localStorage);
+const fireEventsManager = new FireEventsManager(localStorage);
 const eventsContainer = document.querySelector('.events');
-
-
 
 function validateEvent(button) {
   let id = button.className.split(' ')[1];
-  FireEventsManager1.validateFireEvent(+id);  
-  location.reload();
+  fireEventsManager.validateFireEvent(+id);  
+  console.log(`Validated ${id}`);
 }
 
 function getEvents(events) {
+
+  eventsContainer.innerHTML = '';
+
   for (const event of events) {
-    
+
     let eventContainer = document.createElement('div');
 
     let eventList = document.createElement('li');
@@ -29,18 +30,34 @@ function getEvents(events) {
     eventContainer.appendChild(verifyButton);
     verifyButton.classList.add('validate-button');
     verifyButton.classList.add(event.ID.toString());
+
+    let eventMarkerButton = document.createElement('button');
+    let eventMarkerButtonNode = document.createTextNode('Mark event');
+
+    eventMarkerButton.appendChild(eventMarkerButtonNode);
+    eventContainer.appendChild(eventMarkerButton);
+    eventMarkerButton.classList.add('mark-event-button');
+    eventMarkerButton.classList.add(event.ID.toString());
     
 
     eventsContainer.appendChild(eventContainer);
     eventContainer.classList.add('eventContainer');
+  }
 
-    let validateButtons = [...document.querySelectorAll('.validate-button')];
-    for(button of validateButtons) {
-      button.addEventListener('click', () => {
-        validateEvent(button);
-      });
-    }
+  let validateButtons = [...document.querySelectorAll('.validate-button')];
+  for(const button of validateButtons) {
+    button.addEventListener('click', () => {
+    validateEvent(button);
+    getEvents(fireEventsManager.fireEvents);
+  });
+  }
+
+  let eventMarkerButtons = [...document.querySelectorAll('.mark-event-button')];
+  for(const button of eventMarkerButtons) {
+    button.addEventListener('click', () => {
+    placeMarker(button);
+  });
   }
 }
 
-getEvents(FireEventsManager1.fireEvents);
+window.onload = getEvents(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.unverified));

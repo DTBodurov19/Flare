@@ -11,4 +11,10 @@ let leafletIcon = L.icon ({
         // popupAnchor: [2, -30]
     });
 
-let marker = L.marker([42.492985475830444, 27.465648651123047], {icon:leafletIcon}).addTo(map);
+function placeMarker(button) {
+  let id = button.className.split(' ')[1];
+  let eventObj = fireEventsManager.getFireEventByID(+id);
+  let long = eventObj.long;
+  let lat = eventObj.lat;
+  let marker = L.marker([lat, long], {icon:leafletIcon}).addTo(map);
+}
