@@ -19,7 +19,7 @@ class AccountManager {
       password: '1234567',
     },
   ];
-  
+
   _activeUser;
 
   get activeUser () {
@@ -95,7 +95,7 @@ class FireTruck {
    changeAvailability (toAvailable) {
     if (this.isAvailable === toAvailable) throw new Error(`The fireTrucks availability is already\
  set to: ${this.isAvailable}.`);
-    
+
     this._isAvailable = toAvailable;
 
     return this.isAvailable;
@@ -131,6 +131,11 @@ class FireTruckManager {
     this._localStorage = localStorage;
   }
 
+  #updateLocalStorage () {
+    this._localStorage._fireTrucks = JSON.stringify(this._fireTrucks);
+    this._localStorage._removedFireTrucks = JSON.stringify(this._removedFireTrucks);
+  }
+
   /**
    * Adds a new FireTruck instance to the list of fireTrucks.
    * @param {FireTruck} fireTruck 
@@ -145,7 +150,7 @@ class FireTruckManager {
     }
 
     this._fireTrucks.push(fireTruck);
-    this._localStorage._fireTrucks = JSON.stringify(this._fireTrucks);
+    this.#updateLocalStorage();
 
     return fireTruck;
   }
@@ -183,8 +188,7 @@ class FireTruckManager {
 
         delete this.removedFireTrucks[this.removedFireTrucks.length - 1]._isAvailable;
 
-        this._localStorage._fireTrucks = JSON.stringify(this._fireTrucks);
-        this._localStorage._removedFireTrucks = JSON.stringify(this._removedFireTrucks);
+        this.#updateLocalStorage();
 
         return this.removedFireTrucks[this.removeFireTruck.length - 1];
       }
@@ -228,7 +232,7 @@ class FireWorker {
   changeAvailability(toAvailable) {
     if (this.isAvailable === toAvailable) throw new Error(`The workers availability is already\
  set to: ${this.isAvailable}.`);
-    
+
     this._isAvailable = toAvailable;
 
     return this.isAvailable;
@@ -264,6 +268,11 @@ class WorkerManager {
     this._localStorage = localStorage;
   }
 
+  #updateLocalStorage() {
+    this._localStorage._workers = JSON.stringify(this._workers);
+    this._localStorage._removedWorkers = JSON.stringify(this._removedWorkers);
+  }
+
   /**
    * Adds a new FireWorker instance to the workers array.
    * @param {FireWorker} FireWorker - Provide an instance of the class FireWorker.
@@ -277,7 +286,7 @@ class WorkerManager {
 
     this._workers.push(worker);
 
-    this._localStorage._workers = JSON.stringify(this._workers);
+    this.#updateLocalStorage();
 
     return worker;
   }
@@ -325,8 +334,7 @@ class WorkerManager {
 
         delete this.removedWorkers[this.removedWorkers.length - 1]._isAvailable;
 
-        this._localStorage._workers = JSON.stringify(this._workers);
-        this._localStorage._removedWorkers = JSON.stringify(this._removedWorkers);
+        this.#updateLocalStorage();
 
         return this.removedWorkers[this.removedWorkers.length - 1];
       }
@@ -358,6 +366,10 @@ class FireEventsManager {
     rejected: 'rejected',
   };
 
+  get fireEvents () {
+    return this._fireEvents;
+  }
+
   constructor(localStorage) {
     if (localStorage === undefined) throw new Error('Please provide local storage.');
 
@@ -370,6 +382,11 @@ class FireEventsManager {
     }
 
     this._localStorage = localStorage;
+  }
+
+  #updateLocalStorage() {
+    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
+    this._localStorage._currentFireEventID = JSON.stringify(this._currentFireEventID);
   }
 
   /**
@@ -408,14 +425,9 @@ class FireEventsManager {
     this._currentFireEventID++;
     this._fireEvents.push(newFireEvent);
 
-    this._localStorage._currentFireEventID = JSON.stringify(this._currentFireEventID);
-    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
+    this.#updateLocalStorage();
 
     return newFireEvent;
-  }
-
-  get fireEvents () {
-    return this._fireEvents;
   }
 
   /**
@@ -457,7 +469,7 @@ class FireEventsManager {
 
     fireEvent.state = FireEventsManager.fireStates.pending;
 
-    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
+    this.#updateLocalStorage();
 
     return fireEvent;
   }
@@ -473,7 +485,7 @@ class FireEventsManager {
 
     fireEvent.state = FireEventsManager.fireStates.rejected;
 
-    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
+    this.#updateLocalStorage();
 
     return fireEvent;
   }
@@ -519,7 +531,7 @@ class FireEventsManager {
     fireEvent.fireFighter2 = fireFighter2;
     fireEvent.fireTruck = fireTruck;
 
-    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
+    this.#updateLocalStorage();
 
     return fireEvent;
   }
@@ -568,7 +580,7 @@ class FireEventsManager {
     }
     fireTruck.changeAvailability(true);
 
-    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
+    this.#updateLocalStorage();
 
     return fireEvent;
   }
