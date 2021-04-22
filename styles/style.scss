@@ -629,11 +629,11 @@ body{
                 align-items: center;
                 align-self: center;
 
-                .card-hover {
+                .card-wrapper-hover {
                     transform: rotateX(11deg) rotateY(-44deg);
                 }
-                
 
+                
                 .team-card{
                     position: absolute;
                     top: 15px;
@@ -690,6 +690,10 @@ body{
                     left: 310px;
                     z-index: 1;
                     background: linear-gradient(rgb(76, 207, 214) 0%, rgb(106, 69, 224) 100%);
+                }
+
+                .card-hover{
+                    top: -20px;
                 }
             }
         }
