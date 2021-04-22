@@ -16,13 +16,21 @@ body .site-container {
 }
 
 body .site-container .events-container {
-  background: red;
   height: 50vh;
   width: 100%;
+  border-bottom: 1px solid black;
+}
+
+body .site-container .events-container .event {
+  list-style-position: inside;
+  border: 1px solid black;
+  width: 80%;
 }
 
 body .site-container .events-container ol {
   height: inherit;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 body .site-container .map-container {

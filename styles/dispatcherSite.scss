@@ -12,12 +12,20 @@ body{
         flex-direction: column;
 
         .events-container{
-            background:red;
             height: 50vh;
             width: 100%;
+            border-bottom: 1px solid black;
+
+            .event{
+                list-style-position: inside;
+                border: 1px solid black;
+                width: 80%;
+            }
 
             ol{
                 height: inherit;
+                overflow-y: scroll;
+                overflow-x: hidden;
             }
         }
 

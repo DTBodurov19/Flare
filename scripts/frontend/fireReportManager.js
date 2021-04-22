@@ -1,5 +1,5 @@
 let reportFormData;
-const fireEventManager = new FireEventsManager;
+const fireEventManager = new FireEventsManager(localStorage);
 const fireSizeButtons = document.getElementsByName('fire');
     
 
