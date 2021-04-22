@@ -16,11 +16,18 @@ body{
             width: 100%;
             border-bottom: 1px solid black;
 
-            .event{
-                list-style-position: inside;
-                border: 1px solid black;
-                width: 80%;
+            .eventContainer {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+
+                .event{
+                    list-style-position: inside;
+                    border: 1px solid black;
+                    width: 80%;
+                }
             }
+
 
             ol{
                 height: inherit;
