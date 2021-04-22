@@ -355,6 +355,7 @@ class FireEventsManager {
     pending: 'pending',
     inProgress: 'inProgress',
     finished: 'finished',
+    rejected: 'rejected',
   };
 
   constructor(localStorage) {
@@ -455,6 +456,22 @@ class FireEventsManager {
     if (fireEvent.state !== FireEventsManager.fireStates.unverified) throw new Error('Invalid FireEvent');
 
     fireEvent.state = FireEventsManager.fireStates.pending;
+
+    this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
+
+    return fireEvent;
+  }
+
+  /**
+   * A function that rejects the FireEvent with the given id.
+   * @param {number} id 
+   */
+  rejectFireEvent (id) {
+    const fireEvent = this.getFireEventByID(id);
+
+    if (fireEvent.state !== FireEventsManager.fireStates.unverified) throw new Error('Invalid FireEvent');
+
+    fireEvent.state = FireEventsManager.fireStates.rejected;
 
     this._localStorage._fireEvents = JSON.stringify(this._fireEvents);
 
