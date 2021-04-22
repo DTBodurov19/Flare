@@ -9,7 +9,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     let leafletIcon = L.icon ({
         iconUrl: 'https://cdn1.iconfinder.com/data/icons/firefighters-filled-color/300/73621732Untitled-3-512.png',
         iconSize: [38,38],
-        iconAnchor: [22,37],
+        iconAnchor: [19,38],
         popupAnchor: [2, -30]
     });
 
@@ -24,15 +24,3 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     marker.setLatLng(new L.LatLng(lat, lng)).bindPopup('You will report a fire HERE').openPopup();
     mapExitButton.style.display = 'block';
     });
-    
-    let current_position, current_accuracy;
-
-    function onLocationFound(e) {
-    if (current_position) {
-        map.removeLayer(current_position);
-        map.removeLayer(current_accuracy);
-    }
-
-    current_position = L.marker(e.latlng).addTo(map).bindPopup("You will report a fire HERE").openPopup();
-
-    }
