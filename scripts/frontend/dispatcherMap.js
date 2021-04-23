@@ -24,3 +24,33 @@ function placeMarker(button) {
 function removeCurrentMarker(button) {
   marker = marker.setLatLng(new L.LatLng(-84.78652542298238, -18.45703125));
 }
+
+let customControl = L.Control.extend({
+  options: {
+    position: 'topleft'
+  },
+
+  onAdd: function (map) {
+    let container = L.DomUtil.create('input');
+    container.type="button";
+    container.value = "Toggle All Events";
+    container.setAttribute("title", "Show All Ongoing Events")
+
+    container.style.backgroundSize = "30px 30px";
+    container.style.width = '110px';
+    container.style.height = '30px';
+    
+    container.onmouseover = function(){
+      container.style.backgroundColor = '#c9c9c9'; 
+    }
+    container.onmouseout = function(){
+      container.style.backgroundColor = 'white'; 
+    }
+    
+    container.onclick = toggleMarkers;
+
+    return container;
+  }
+});
+
+map.addControl(new customControl());
