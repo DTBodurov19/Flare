@@ -238,6 +238,10 @@ body{
                     display: none;
                     zoom: 100%;
                     border-radius: 20px;
+                    
+                    .leaflet-control-attribution{
+                        display: none;
+                    }
         
                     .leaflet-popup-content-wrapper {
                         background:#2c3e50;

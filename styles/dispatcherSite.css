@@ -58,6 +58,10 @@ body .site-container .map-container {
   width: 100%;
 }
 
+body .site-container .map-container .leaflet-control-attribution {
+  display: none;
+}
+
 body .site-container .map-container #map {
   height: 100%;
   width: 100%;

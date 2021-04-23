@@ -45,6 +45,10 @@ body{
             height: 50vh;
             width: 100%;
 
+            .leaflet-control-attribution{
+                display: none;
+            }
+
             #map{
                 height:100%;
                 width: 100%;

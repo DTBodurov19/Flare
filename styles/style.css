@@ -317,6 +317,10 @@ body .forms-overlay-container .form-overlay .report-form-container #mapid {
   border-radius: 20px;
 }
 
+body .forms-overlay-container .form-overlay .report-form-container #mapid .leaflet-control-attribution {
+  display: none;
+}
+
 body .forms-overlay-container .form-overlay .report-form-container #mapid .leaflet-popup-content-wrapper {
   background: #2c3e50;
   color: #fff;
