@@ -9,12 +9,18 @@ let leafletIcon = L.icon ({
         iconSize: [20,20],
         iconAnchor: [10,10],
         // popupAnchor: [2, -30]
-    });
+});
+    
+let marker = L.marker([-84.78652542298238, -18.45703125], {icon:leafletIcon}).addTo(map);
 
 function placeMarker(button) {
   let id = button.className.split(' ')[1];
   let eventObj = fireEventsManager.getFireEventByID(+id);
   let long = eventObj.long;
   let lat = eventObj.lat;
-  let marker = L.marker([lat, long], {icon:leafletIcon}).addTo(map);
+  marker = marker.setLatLng(new L.LatLng(lat, long));
+}
+
+function removeCurrentMarker(button) {
+  marker = marker.setLatLng(new L.LatLng(-84.78652542298238, -18.45703125));
 }

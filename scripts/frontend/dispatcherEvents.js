@@ -1,5 +1,7 @@
 const fireEventsManager = new FireEventsManager(localStorage);
 const eventsContainer = document.querySelector('.events');
+const backButton = document.querySelector('.backButton');
+const refreshButton = document.querySelector('.refreshButton');
 
 function validateEvent(button) {
   let id = button.className.split(' ')[1];
@@ -33,7 +35,6 @@ function getEvents(events) {
 
     let eventMarkerButton = document.createElement('button');
     let eventMarkerButtonNode = document.createTextNode('Mark event');
-
     eventMarkerButton.appendChild(eventMarkerButtonNode);
     eventContainer.appendChild(eventMarkerButton);
     eventMarkerButton.classList.add('mark-event-button');
@@ -47,8 +48,9 @@ function getEvents(events) {
   let validateButtons = [...document.querySelectorAll('.validate-button')];
   for(const button of validateButtons) {
     button.addEventListener('click', () => {
-    validateEvent(button);
-    getEvents(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.unverified));
+      validateEvent(button);
+      getEvents(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.unverified));
+      removeCurrentMarker(button);
   });
   }
 
@@ -63,3 +65,11 @@ function getEvents(events) {
 window.onload = getEvents(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.unverified));
 
 console.log(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.unverified));
+
+backButton.addEventListener('click', () => {
+  window.history.back();
+})
+
+refreshButton.addEventListener('click', () => {
+  location.reload();
+})

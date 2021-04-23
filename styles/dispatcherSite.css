@@ -38,6 +38,15 @@ body .site-container .events-container .eventContainer .event {
   width: 80%;
 }
 
+body .site-container .events-container .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 body .site-container .events-container ol {
   height: inherit;
   overflow-y: scroll;
