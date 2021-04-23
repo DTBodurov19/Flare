@@ -481,9 +481,12 @@ body{
                 justify-content: center;
                 align-items: center;
                 flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
 
                 #logo{
-                    width:100%;
+                    padding-left: 25px;
+                    padding-right: 5%;
                 }
 
                 .login-button-container{
@@ -531,14 +534,10 @@ body{
                 }
 
                 .links{
-                    position: absolute;
-                    left: 40%;
                     display: flex;
                     flex-direction: row;
                     text-align: center;
                     justify-content: flex-start;
-                    margin-right: 5rem;
-                    
                     
                     li{
                         list-style: none;

@@ -627,10 +627,15 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .navbar ul #logo {
-  width: 100%;
+  padding-left: 25px;
+  padding-right: 5%;
 }
 
 .navbar ul .login-button-container {
@@ -687,8 +692,6 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
 }
 
 .navbar ul .links {
-  position: absolute;
-  left: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -700,7 +703,6 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-right: 5rem;
 }
 
 .navbar ul .links li {
