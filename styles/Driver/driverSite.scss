@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    
+    .site-container{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        .events-container{
+            height: 50vh;
+            width: 100%;
+            border-bottom: 1px solid black;
+
+            .eventContainer {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+
+                .event{
+                    list-style-position: inside;
+                    border: 1px solid black;
+                    width: 80%;
+                }
+            }
+
+            ol{
+                height: inherit;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+        }
+
+        .map-container{
+            height: 50vh;
+            width: 100%;
+
+            .leaflet-control-attribution{
+                display: none;
+            }
+
+            #map{
+                height:100%;
+                width: 100%;
+            }
+        }
+    }
+}

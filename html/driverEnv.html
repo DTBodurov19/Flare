@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flare</title>
     <link rel="icon" href="../img/icon.png">
-    <link rel="stylesheet" href="../styles/Dispatcher/dispatcherSite.css">
+    <link rel="stylesheet" href="../styles/Driver/driverSite.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
@@ -14,10 +14,6 @@
 <body>
     <div class="site-container">
         <div class="events-container">
-            <div class="nav">
-                <button class="backButton">Back</button>
-                <button class="refreshButton">Refresh</button>
-            </div>
             <ol class="events"></ol>
         </div>
 
@@ -27,11 +23,9 @@
     </div>
 
     <script type="text/javascript" src="../scripts/backend/index.js"></script>
+    <script src="../scripts/frontend/Driver/driverEvents.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
-    <script type="text/javascript" src="../scripts/frontend/Dispatcher/dispatcherEvents.js"></script>
-    <script type="text/javascript" src="../scripts/frontend/Dispatcher/dispatcherMap.js"></script>
-    
 </body>
 </html>

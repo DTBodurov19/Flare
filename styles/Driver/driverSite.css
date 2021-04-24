@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body .site-container {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .site-container .events-container {
+  height: 50vh;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+body .site-container .events-container .eventContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+body .site-container .events-container .eventContainer .event {
+  list-style-position: inside;
+  border: 1px solid black;
+  width: 80%;
+}
+
+body .site-container .events-container ol {
+  height: inherit;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body .site-container .map-container {
+  height: 50vh;
+  width: 100%;
+}
+
+body .site-container .map-container .leaflet-control-attribution {
+  display: none;
+}
+
+body .site-container .map-container #map {
+  height: 100%;
+  width: 100%;
+}
+/*# sourceMappingURL=driverSite.css.map */
