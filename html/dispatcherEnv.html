@@ -12,6 +12,78 @@
     crossorigin=""/>
 </head>
 <body>
+
+    <div class="forms-overlay-container">
+        <div class="form-overlay">
+            <div class="add-worker-form-container">
+                <button class="form-exit-button">X</button>
+                <h1>Add worker</h1>
+                <form id="add-worker-form">
+    
+                    
+                    <div class="id-field">
+                        <input type="text" name="id" id="form-id" class="input-field" autocomplete="off" placeholder="Worker ID">
+                    </div>
+                    
+                    <div class="name-field">
+                        <input type="text" name="name" id="form-name"  class="input-field" autocomplete="off" placeholder="Name">
+                    </div>
+
+                    <div class="permissions-field">
+                        <select name="permissions-dropdown" id="permissions-dropdown">
+                            <option value="0">Fire fighter</option>
+                            <option value="1">Driver</option>
+                        </select>
+                    </div>
+    
+                    <div class="submit-button-container">
+                        <button class="add-worker">Add worker</button>
+                    </div>
+                </form>
+
+                <div class="message-container">
+                    <p id="message"></p>
+                </div>
+            </div>
+
+            <div class="add-truck-form-container">
+                <button class="form-exit-button">X</button>
+                <h1>Add Fire Truck</h1>
+                <form id="add-truck-form">
+                    
+                    <div class="brand-field">
+                        <input type="text" name="brand" id="form-brand" class="input-field" autocomplete="off" placeholder="Brand">
+                    </div>
+                    
+                    <div class="model-field">
+                        <input type="text" name="model" id="form-model"  class="input-field" autocomplete="off" placeholder="Model">
+                    </div>
+
+                    <div class="license-plate-field">
+                        <input type="text" name="license-plate" id="form-license-plate"  class="input-field" autocomplete="off" placeholder="License plate">
+                    </div>
+
+                    <div class="km-traveled-field">
+                        <input type="text" name="km-traveled" id="form-km-traveled"  class="input-field" autocomplete="off" placeholder="Km traveled">
+                    </div>
+
+                    <div class="water-storage-field">
+                        <input type="text" name="water-storage" id="form-water-storage"  class="input-field" autocomplete="off" placeholder="Water storage">
+                    </div>
+
+                    <div class="submit-button-container">
+                        <button class="add-fireTruck">Add firetruck</button>
+                    </div>
+                </form>
+
+                <div class="message-container">
+                    <p id="message"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="site-container">
         <div class="events-container">
             <div class="nav">
@@ -20,8 +92,8 @@
                 <div class='add-container'>
                     <button class="addButton">Add</button>
                     <div class="add-menu">
-                        <button>Worker</button>
-                        <button>Fire Truck</button>
+                        <button class="add-worker-button">Worker</button>
+                        <button class="add-firetruck-button">Fire Truck</button>
                     </div>
                 </div>
             </div>
