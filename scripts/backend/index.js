@@ -204,6 +204,11 @@ class FireTruckManager {
 class FireWorker {
   _isAvailable = true;
 
+  static fireWorkerRoles = {
+    fireFighter: 'fireFighter',
+    driver: 'driver',
+  }
+
   /**
    * 
    * @param {number} id - The id you are going to use to acces the FireWorker.
