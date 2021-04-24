@@ -211,7 +211,7 @@ class FireWorker {
    * @param {string} role - The job of the FireWorker.
    */
   constructor (id, name, role) {
-    if (typeof id !== 'number') throw new Error('Id must be Number.');
+    if (typeof id !== 'number' || !isFinite(id)) throw new Error('Id must be Number.');
     if (typeof name !== 'string') throw new Error('Name must be String.');
     if (typeof role !== 'string') throw new Error('Role must be String.');
 
