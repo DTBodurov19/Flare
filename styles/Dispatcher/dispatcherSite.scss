@@ -31,7 +31,25 @@ body{
             .nav{
                 display: flex;
                 justify-content: space-evenly;
-        }
+                height: 5%;
+
+                .add-container {
+                    
+                    .add-menu{
+                        width: 150px;
+                        height: 100px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        background: rgba(50, 61, 109, 0.5);
+                        backdrop-filter: blur(40px);
+                        border: rgba(17, 17, 17, 0.219) .1px solid;
+                        border-radius: 20px;
+                        z-index: 10;
+                        display: none;
+                    }
+                }
+            }
 
 
             ol{
