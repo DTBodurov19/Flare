@@ -11,18 +11,18 @@ let myChart = document.getElementById('Chart').getContext('2d');
         labels:['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets:[{
         data:[
-            127,
-            117,
-            121,
+            147,
             139,
+            138,
+            149,
             154,
             162,
             168,
             174,
-            157,
-            148,
-            136,
-            132
+            167,
+            158,
+            146,
+            142
         ],
 
 
