@@ -120,15 +120,39 @@ class FireTruckManager {
   constructor(localStorage) {
     if (localStorage === undefined) throw new Error('Please provide local storage.');
 
+    this._localStorage = localStorage;
+
     if (localStorage.hasOwnProperty('_fireTrucks')) {
-      this._fireTrucks = JSON.parse(localStorage._fireTrucks);
+      const fireTrucks = JSON.parse(localStorage._fireTrucks);
+
+      for (const fireTruck of fireTrucks) {
+        this.addNewFireTruck(new FireTruck(
+          fireTruck.licencePlate,
+          fireTruck.make,
+          fireTruck.model,
+          fireTruck.kmTraveled,
+          fireTruck.waterStorage
+          ));
+
+        this.fireTrucks[this.fireTrucks.length - 1]._isAvailable = fireTruck._isAvailable;
+      }
     }
 
     if (localStorage.hasOwnProperty('_removedFireTrucks')) {
-      this._removedFireTrucks = JSON.parse(localStorage._removedFireTrucks);
-    }
+      const removedFireTrucks = JSON.parse(localStorage._removedFireTrucks);
 
-    this._localStorage = localStorage;
+      for (const removedFireTruck of removedFireTrucks) {
+        this.addNewFireTruck(new FireTruck(
+          removedFireTruck.licencePlate,
+          removedFireTruck.make,
+          removedFireTruck.model,
+          removedFireTruck.kmTraveled,
+          removedFireTruck.waterStorage
+        ));
+
+        this.removeFireTruck(removedFireTruck.licencePlate);
+      }
+    }
   }
 
   #updateLocalStorage () {
@@ -262,15 +286,25 @@ class WorkerManager {
   constructor(localStorage) {
     if (localStorage === undefined) throw new Error('Please provide local storage.');
 
+    this._localStorage = localStorage;
+
     if (localStorage.hasOwnProperty('_workers')) {
-      this._workers = JSON.parse(localStorage._workers);
+      const workers = JSON.parse(localStorage._workers);
+
+      for (const worker of workers) {
+        this.addNewWorker(new FireWorker(worker.id, worker.name, worker.role));
+      }
     }
 
     if (localStorage.hasOwnProperty('_removedWorkers')) {
-      this._removedWorkers = JSON.parse(localStorage._removedWorkers);
-    }
+      const removedWorkers = JSON.parse(localStorage._removedWorkers);
 
-    this._localStorage = localStorage;
+      for (const removedWorker of removedWorkers) {
+        this.addNewWorker(new FireWorker(removedWorker.id, removedWorker.name, removedWorker.role));
+
+        this.removeWorker(removedWorker.id);
+      }
+    }
   }
 
   #updateLocalStorage() {
@@ -378,15 +412,73 @@ class FireEventsManager {
   constructor(localStorage) {
     if (localStorage === undefined) throw new Error('Please provide local storage.');
 
-    if (localStorage.hasOwnProperty('_fireEvents')) {
-      this._fireEvents = JSON.parse(localStorage._fireEvents);
-    }
-
-    if (localStorage.hasOwnProperty('_currentFireEventID')) {
-      this._currentFireEventID = JSON.parse(localStorage._currentFireEventID);
-    }
-
     this._localStorage = localStorage;
+
+    if (localStorage.hasOwnProperty('_fireEvents')) {
+      const fireEvents = JSON.parse(localStorage._fireEvents);
+
+      for (const fireEvent of fireEvents) {
+        this.addNewFireEvent(
+          fireEvent.fireSize,
+          new Date(fireEvent.startDate),
+          [fireEvent.lat, fireEvent.long],
+          fireEvent.description,
+          fireEvent.telephoneNumber,
+          fireEvent.reporterName);
+
+        if (fireEvent.state === FireEventsManager.fireStates.rejected) {
+          this.rejectFireEvent(fireEvent.ID);
+        }
+
+        if (
+          fireEvent.state === FireEventsManager.fireStates.pending ||
+          fireEvent.state === FireEventsManager.fireStates.inProgress ||
+          fireEvent.state === FireEventsManager.fireStates.finished
+        ) {
+          this.validateFireEvent(fireEvent.ID);
+        }
+
+        if (
+          fireEvent.state === FireEventsManager.fireStates.inProgress ||
+          fireEvent.state === FireEventsManager.fireStates.finished
+        ) {
+          this.startOperationOnFireEvent(
+            fireEvent.ID,
+            new Date(fireEvent.startOperationTime),
+            new FireWorker(
+              fireEvent.driver.id,
+              fireEvent.driver.name,
+              fireEvent.driver.role
+            ),
+            new FireWorker(
+              fireEvent.driver.id,
+              fireEvent.driver.name,
+              fireEvent.driver.role
+            ),
+            new FireWorker(
+              fireEvent.driver.id,
+              fireEvent.driver.name,
+              fireEvent.driver.role
+            ),
+            new FireTruck(
+              fireEvent.fireTruck.licencePlate,
+              fireEvent.fireTruck.make,
+              fireEvent.fireTruck.model,
+              fireEvent.fireTruck.kmTraveled,
+              fireEvent.fireTruck.waterStorage
+            )
+          );
+        }
+
+        if (fireEvent.state === FireEventsManager.fireStates.finished) {
+          this.finishOperationOnFireEvent(fireEvent.ID, new Date(fireEvent.finishTime), fireEvent.fireTruck.kmTraveled);
+        }
+      }
+
+      if (localStorage.hasOwnProperty('_currentFireEventID')) {
+        this._currentFireEventID = JSON.parse(localStorage._currentFireEventID);
+      }
+    }
   }
 
   #updateLocalStorage() {
