@@ -1,6 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap");
 * {
   margin: 0;
   padding: 0;
+}
+
+.input-field {
+  margin-bottom: 15px;
+  outline: none;
+  padding: 1em 1.8em;
+  border: 1px rgba(255, 255, 255, 0.342) solid;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.151);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.input-field::-webkit-input-placeholder {
+  color: #9798b1;
+}
+
+.input-field:-ms-input-placeholder {
+  color: #9798b1;
+}
+
+.input-field::-ms-input-placeholder {
+  color: #9798b1;
+}
+
+.input-field::placeholder {
+  color: #9798b1;
+}
+
+.input-field:focus {
+  background: rgba(20, 5, 61, 0.301);
+  border-color: #ff008c;
+  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+}
+
+body .forms-overlay-container {
+  position: absolute;
+}
+
+body .forms-overlay-container .form-bg-blur-animation {
+  -webkit-animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
+          animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
+}
+
+body .forms-overlay-container .form-enter-animation {
+  -webkit-animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
+          animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
+}
+
+body .forms-overlay-container .form-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  z-index: -1;
+  display: none;
+  -webkit-perspective: 175em;
+          perspective: 175em;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  height: 50%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  background: rgba(50, 61, 109, 0.5);
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  border: rgba(255, 255, 255, 0.219) 0.1px solid;
+  border-radius: 20px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+  opacity: 0;
+  display: none;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container .message-container {
+  position: absolute;
+  bottom: 15px;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container .message-container #message {
+  font-family: 'Montserrat';
+  color: white;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container #add-worker-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container #add-worker-form .submit-button-container .add-worker {
+  padding: 1em 8em;
+  background: -webkit-gradient(linear, right top, left top, from(#ff008c), to(purple));
+  background: linear-gradient(to left, #ff008c, purple);
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container #add-worker-form .submit-button-container .add-worker:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container h1 {
+  position: absolute;
+  top: 15%;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container .form-exit-button {
+  position: absolute;
+  right: -5px;
+  top: -10px;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  padding: .8em 1em;
+  background: rgba(255, 255, 255, 0.144);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  color: white;
+  font-size: 1em;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+body .forms-overlay-container .form-overlay .add-worker-form-container .form-exit-button:hover {
+  background: rgba(255, 255, 255, 0.425);
+  padding: .9em 1.1em;
+}
+
+body .forms-overlay-container .form-overlay .add-truck-form-container {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  height: 60%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  background: rgba(50, 61, 109, 0.5);
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  border: rgba(255, 255, 255, 0.219) 0.1px solid;
+  border-radius: 20px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+  opacity: 0;
+  display: none;
+}
+
+body .forms-overlay-container .form-overlay .add-truck-form-container #add-truck-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  margin-top: 4em;
+}
+
+body .forms-overlay-container .form-overlay .add-truck-form-container #add-truck-form .submit-button-container .add-fireTruck {
+  padding: 1.6em 8em;
+  background: -webkit-gradient(linear, right top, left top, from(#ff008c), to(purple));
+  background: linear-gradient(to left, #ff008c, purple);
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  margin-top: 2em;
+}
+
+body .forms-overlay-container .form-overlay .add-truck-form-container #add-truck-form .submit-button-container .add-fireTruck:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body .forms-overlay-container .form-overlay h1 {
+  position: absolute;
+  top: 4%;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .forms-overlay-container .form-overlay .add-truck-form-exit-button {
+  position: absolute;
+  right: -5px;
+  top: -10px;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  padding: .8em 1em;
+  background: rgba(255, 255, 255, 0.144);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  color: white;
+  font-size: 1em;
+  -webkit-transition: .2s;
+  transition: .2s;
+  z-index: 1000;
+}
+
+body .forms-overlay-container .form-overlay .add-truck-form-exit-button:hover {
+  background: rgba(255, 255, 255, 0.425);
+  padding: .9em 1.1em;
 }
 
 body .site-container {
@@ -80,6 +362,10 @@ body .site-container .map-container {
   width: 100%;
 }
 
+body .site-container .map-container .leaflet-control-container {
+  z-index: 1;
+}
+
 body .site-container .map-container .leaflet-control-attribution {
   display: none;
 }
@@ -87,5 +373,69 @@ body .site-container .map-container .leaflet-control-attribution {
 body .site-container .map-container #map {
   height: 100%;
   width: 100%;
+}
+
+@-webkit-keyframes blurFormBackground {
+  0% {
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  100% {
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+}
+
+@keyframes blurFormBackground {
+  0% {
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  100% {
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+}
+
+@-webkit-keyframes loginFormEnter {
+  0% {
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
+    opacity: 0;
+    margin-bottom: 60px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+  }
+}
+
+@keyframes loginFormEnter {
+  0% {
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
+    opacity: 0;
+    margin-bottom: 60px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+  }
 }
 /*# sourceMappingURL=dispatcherSite.css.map */

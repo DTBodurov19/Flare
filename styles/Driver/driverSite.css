@@ -49,6 +49,25 @@ body .site-container .map-container {
   width: 100%;
 }
 
+body .site-container .map-container .animate {
+  stroke-dasharray: 1920;
+  stroke-dashoffset: 1920;
+  -webkit-animation: dash 20s linear 0s forwards;
+          animation: dash 20s linear 0s forwards;
+}
+
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 body .site-container .map-container .leaflet-control-attribution {
   display: none;
 }
