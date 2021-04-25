@@ -1,12 +1,6 @@
 const fireEventsManager = new FireEventsManager(localStorage);
 const eventsContainer = document.querySelector(".events");
 
-function startEvent(button) {
-  let id = button.className.split(" ")[1];
-  fireEventsManager.validateFireEvent(+id);
-  console.log(`Validated ${id}`);
-}
-
 function getEvents(events) {
   eventsContainer.innerHTML = "";
 
@@ -43,7 +37,18 @@ function getEvents(events) {
           FireEventsManager.fireStates.pending
         )
       );
-      placeMarker(button);
+      fillStartEventForm(drivers, fireFighters, trucks);
+      //display the form
+      startEventForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        placeMarker(button);
+        try {
+          startEvent(button, workerManager.getWorkerByID(+driversDropDown.value), workerManager.getWorkerByID(+fireFightersDropDown1.value), workerManager.getWorkerByID(+fireFightersDropDown2.value), truckManager.getFireTruckByLicencePlate(trucksDropDown.value));
+        }
+        catch(error) {
+          console.log(error);
+        } 
+      });
     });
   }
 }

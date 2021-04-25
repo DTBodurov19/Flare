@@ -13,6 +13,49 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 </head>
 <body>
+
+    <div class="forms-overlay-container">
+        <div class="form-overlay">
+            <div class="start-event-form-container">
+                <button class="form-exit-button">X</button>
+                <h1>Start Event</h1>
+                <form id="start-event-form">
+                    <div class="driver-field">
+                        <select name="drivers-dropdown" id="drivers-dropdown">
+
+                        </select>
+                    </div>
+
+                    <div class="worker1-field">
+                        <select name="workers-dropdown" id="workers-dropdown1">
+
+                        </select>
+                    </div>
+
+                    <div class="worker2-field">
+                        <select name="workers-dropdown" id="workers-dropdown2">
+
+                        </select>
+                    </div>
+
+                    <div class="truck-field">
+                        <select name="trucks-dropdown" id="trucks-dropdown">
+
+                        </select>
+                    </div>
+                    
+                    <div class="submit-button-container">
+                        <button class="start-event-form-button">Start Event</button>
+                    </div>
+                </form>
+                <div class="message-container">
+                    <p id="message"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="site-container">
         <div class="events-container">
             <ol class="events"></ol>
@@ -24,6 +67,7 @@
     </div>
 
     <script type="text/javascript" src="../scripts/backend/index.js"></script>
+    <script type="text/javascript" src="../scripts/frontend/Driver/driverStartEvent.js"></script>
     <script src="../scripts/frontend/Driver/driverEvents.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
