@@ -19,6 +19,16 @@ let control = L.Routing.control({
   ],
   lineOptions: {
     styles: [{className: 'animate'}]
-},
+  },
+  createMarker: function (i, waypoint, n) {
+    const marker = L.marker(waypoint.latLng, {
+      icon: L.icon({
+        iconUrl: 'https://svgshare.com/i/AaW.svg',
+        iconSize: [20,20],
+        iconAnchor: [10, 10],
+      })
+    });
+    return marker;
+  },
   routeWhileDragging: true
 }).addTo(map);
