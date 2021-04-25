@@ -38,13 +38,12 @@ function getEvents(events) {
   let startButtons = [...document.querySelectorAll(".start-event-button")];
   for (const button of startButtons) {
     button.addEventListener("click", () => {
-      validateEvent(button);
       getEvents(
         fireEventsManager.getFireEventsByState(
           FireEventsManager.fireStates.pending
         )
       );
-      removeCurrentMarker(button);
+      placeMarker(button);
     });
   }
 }
