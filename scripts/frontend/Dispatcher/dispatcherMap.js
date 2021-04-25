@@ -8,7 +8,6 @@ let leafletIcon = L.icon ({
         iconUrl: 'https://svgshare.com/i/AaW.svg',
         iconSize: [20,20],
         iconAnchor: [10,10],
-        // popupAnchor: [2, -30]
 });
     
 let marker = L.marker([-84.78652542298238, -18.45703125], {icon:leafletIcon}).addTo(map);

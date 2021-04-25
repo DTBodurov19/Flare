@@ -9,6 +9,12 @@ function validateEvent(button) {
   console.log(`Validated ${id}`);
 }
 
+function rejectEvent(button) {
+  let id = button.className.split(" ")[1];
+  fireEventsManager.rejectFireEvent(+id);
+  console.log(`Rejected ${id}`);
+}
+
 function getEvents(events) {
   eventsContainer.innerHTML = "";
 
@@ -32,6 +38,14 @@ function getEvents(events) {
     eventContainer.appendChild(verifyButton);
     verifyButton.classList.add("validate-button");
     verifyButton.classList.add(event.ID.toString());
+    
+    let rejectButton = document.createElement("button");
+    let rejectButtonNode = document.createTextNode("Reject");
+
+    rejectButton.appendChild(rejectButtonNode);
+    eventContainer.appendChild(rejectButton);
+    rejectButton.classList.add("reject-button");
+    rejectButton.classList.add(event.ID.toString());
 
     let eventMarkerButton = document.createElement("button");
     let eventMarkerButtonNode = document.createTextNode("Mark event");
@@ -46,7 +60,7 @@ function getEvents(events) {
 
   let validateButtons = [...document.querySelectorAll(".validate-button")];
   for (const button of validateButtons) {
-    button.addEventListener("click", () => {
+    button.addEventListener('click', () => {
       validateEvent(button);
       getEvents(
         fireEventsManager.getFireEventsByState(
@@ -62,6 +76,19 @@ function getEvents(events) {
     button.addEventListener("click", () => {
       placeMarker(button);
     });
+  }
+  
+  let rejectButtons = [...document.querySelectorAll(".reject-button")];
+    for (const button of rejectButtons) {
+      button.addEventListener('click', () => {
+        rejectEvent(button);
+        getEvents(
+          fireEventsManager.getFireEventsByState(
+          FireEventsManager.fireStates.unverified
+          )
+        );
+        removeCurrentMarker(button);
+      });
   }
 }
 

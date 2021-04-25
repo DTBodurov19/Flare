@@ -28,7 +28,7 @@ function fillData(){
 }
 
 function checkEmpty() {
-    if (reportFormData.name == "") {
+    if (reportFormData.name === "  ") {
         alert("Enter your name");
     }
     else if (reportFormData.phoneNumber == "") {
