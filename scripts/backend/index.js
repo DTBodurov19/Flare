@@ -346,7 +346,7 @@ class WorkerManager {
    * @param {number} id - The id of the user you want to get.
    */
   getWorkerByID (id) {
-    if (typeof id !== 'number') throw new Error('Id must be a Number.');
+    if (typeof id !== 'number' || !isFinite(id)) throw new Error('Id must be a Number.');
 
     let worker = this._workers.filter((worker) => worker.id === id)[0];
 
@@ -362,7 +362,7 @@ class WorkerManager {
    * @returns {FireWorker} the worker that was removed.
    */
   removeWorker (id) {
-    if (typeof id !== 'number') throw new Error('Id must be a number.');
+    if (typeof id !== 'number' || !isFinite(id)) throw new Error('Id must be a number.');
 
     for (const workerIndex in this._workers) {
       if (
@@ -545,7 +545,7 @@ class FireEventsManager {
    * @returns {object} The fire event corresponding to your id.
    */
   getFireEventByID (id) {
-    if (typeof id !== 'number') throw new Error('Id must be a Number.');
+    if (typeof id !== 'number' || !isFinite(id)) throw new Error('Id must be a Number.');
 
     const fireEvent = this._fireEvents.filter(fireEvent => fireEvent.ID === id)[0];
 
