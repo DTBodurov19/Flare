@@ -32,3 +32,34 @@ function placeMarker(button) {
     routeWhileDragging: true
   }).addTo(map);
 }
+function showFinishButton(){
+  let customControl = L.Control.extend({
+    options: {
+      position: 'topleft'
+    },
+
+    onAdd: function (map) {
+      let container = L.DomUtil.create('input');
+      container.type = "button";
+      container.value = "Finish Event";
+      container.setAttribute("title", "Press the button to mark the fire event as finished")
+
+      container.style.backgroundSize = "30px 30px";
+      container.style.width = '110px';
+      container.style.height = '30px';
+    
+      container.onmouseover = function () {
+        container.style.backgroundColor = '#c9c9c9';
+      }
+      container.onmouseout = function () {
+        container.style.backgroundColor = 'white';
+      }
+    
+      container.onclick = finishEvent;
+
+      return container;
+    }
+  });
+
+  map.addControl(new customControl());
+}
