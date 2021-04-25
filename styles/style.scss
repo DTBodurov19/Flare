@@ -468,16 +468,18 @@ body{
         border-radius: 50%;
         transition: 0.1s;
         pointer-events: none;
-        z-index: 1;
+        z-index: 5;
 
     }
 
     .navbar{
             color: rgb(182, 182, 182);
             font-family: 'Montserrat', sans-serif;
+            z-index: 5;
             
             .dashboard{
                 display: none;
+                z-index: 5;
             }
             
             ul{
@@ -487,10 +489,12 @@ body{
                 flex-direction: row;
                 width: 100%;
                 justify-content: space-between;
+                z-index: 5;
 
                 #logo{
                     padding-left: 25px;
                     padding-right: 5%;
+                    z-index: 5;
                 }
 
                 .login-button-container{
@@ -498,6 +502,7 @@ body{
                         padding: 25px 25px;
                         display: flex;
                         align-items: center;
+                        z-index: 5;
 
                         a{                        
                             color:rgb(182, 182, 182);   
@@ -505,6 +510,7 @@ body{
                             transition: color .3s;
                             z-index: 2;
                             display: none;
+                            z-index: 5;
                             
                             &:visited{
                                 color:rgb(182, 182, 182);
@@ -530,6 +536,7 @@ body{
                         background: rgba(50, 61, 109, 0.5);
                         backdrop-filter: blur(30px);
                         transition: all .20s;
+                        z-index: 5;
             
                         &:hover{
                             box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
@@ -542,16 +549,18 @@ body{
                     flex-direction: row;
                     text-align: center;
                     justify-content: flex-start;
+                    z-index: 5;
                     
                     li{
                         list-style: none;
                         padding: 25px 25px;
+                        z-index: 5;
 
                         a{                        
                             color:rgb(182, 182, 182);   
                             text-decoration: none;
                             transition: color .3s;
-                            z-index: 2;
+                            z-index: 5;
                             
                             &:visited{
                                 color:rgb(182, 182, 182);
@@ -567,11 +576,71 @@ body{
     }
 
     #home{
+
+        .art-container{
+            position:absolute;
+            top:0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            z-index: 1;
+
+            .background{
+                position: relative;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                z-index: 1;
+
+                img{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                }
+            }
+
+            .midground{
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                z-index: 2;
+
+                img{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 2;
+                }
+            }
+
+            .foreground{
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                z-index: 3;
+
+                img{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 3;
+                }
+
+                #foreground-first-field {
+                    bottom: -110%;
+                }
+            }
+        }
+
             .report-button-container{
                 height: 50vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                z-index: 4;
 
                 .report-button{
                     background: none;
@@ -588,6 +657,7 @@ body{
                     background: rgba(50, 61, 109, 0.5);
                     backdrop-filter: blur(30px);
                     transition: all .20s;
+                    z-index: 4;
         
                     &:hover{
                         margin-bottom: 6px;

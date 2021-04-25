@@ -87,6 +87,7 @@
         <div class="cursor"></div>
 
     <div id="SmoothScroll">
+
             <nav class="navbar">
                 <ul>
                     <div id="logo">
@@ -109,6 +110,28 @@
             </nav>
         
         <section id="home">
+
+            <div class="art-container" class="rellax">
+                <div class="background">
+                    <img src="Design/Background/Background.svg">
+                    <img src="Design/Background/Sun.svg">
+                    <img src="Design/Background/Background-Mountains.svg" class="rellax" data-rellax-speed="0">
+                    <img src="Design/Background/Fog.svg" class="rellax" data-rellax-speed="1.5">
+                </div>
+
+                <div class="midground">
+                    <img src="Design/Midground/Midground-Mountains.svg" class="rellax" data-rellax-speed="2.5">
+                    <img src="Design/Midground/Midground-Fog.svg" class="rellax" data-rellax-speed="3.5">
+                    <img src="Design/Midground/Midground-Forest.svg" class="rellax" data-rellax-speed="4">
+                </div>
+
+                <div class="foreground">
+                    <img src="Design/Foreground/Foreground-last-fiend.svg" class="rellax" data-rellax-speed="4.5">
+                    <img src="Design/Foreground/Foreground-house-field.svg" class="rellax" data-rellax-speed="5">
+                    <img src="Design/Foreground/Foreground-second-field.svg" class="rellax" data-rellax-speed="5.5">
+                    <img src="Design/Foreground/Foreground-first-field.svg" id="foreground-first-field" class="rellax" data-rellax-speed="10">
+                </div>
+            </div>
 
             <div class="report-button-container">
                 <button class="report-button">Report A Fire</button>
@@ -184,6 +207,10 @@
     <script src="scripts/frontend/butter.js"></script>
     <script>
     butter.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <script>
+      var rellax = new Rellax('.rellax');
     </script>
     <script type="text/javascript" src="scripts/frontend/manageLoginForm.js"></script>
     <script type="text/javascript" src="scripts/frontend/loginManager.js"></script>

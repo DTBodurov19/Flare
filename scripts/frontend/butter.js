@@ -5,7 +5,7 @@
 
         this.defaults = {
             wrapperId: 'SmoothScroll',
-            wrapperDamper: 0.1,
+            wrapperDamper: 0.13,
             cancelOnTouch: true
         }
         

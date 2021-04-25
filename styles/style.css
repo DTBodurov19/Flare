@@ -605,16 +605,18 @@ body .cursor {
   -webkit-transition: 0.1s;
   transition: 0.1s;
   pointer-events: none;
-  z-index: 1;
+  z-index: 5;
 }
 
 body .navbar {
   color: #b6b6b6;
   font-family: 'Montserrat', sans-serif;
+  z-index: 5;
 }
 
 body .navbar .dashboard {
   display: none;
+  z-index: 5;
 }
 
 body .navbar ul {
@@ -635,11 +637,13 @@ body .navbar ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  z-index: 5;
 }
 
 body .navbar ul #logo {
   padding-left: 25px;
   padding-right: 5%;
+  z-index: 5;
 }
 
 body .navbar ul .login-button-container {
@@ -651,6 +655,7 @@ body .navbar ul .login-button-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 5;
 }
 
 body .navbar ul .login-button-container a {
@@ -660,6 +665,7 @@ body .navbar ul .login-button-container a {
   transition: color .3s;
   z-index: 2;
   display: none;
+  z-index: 5;
 }
 
 body .navbar ul .login-button-container a:visited {
@@ -688,6 +694,7 @@ body .navbar ul .login-button-container .login-button {
           backdrop-filter: blur(30px);
   -webkit-transition: all .20s;
   transition: all .20s;
+  z-index: 5;
 }
 
 body .navbar ul .login-button-container .login-button:hover {
@@ -707,11 +714,13 @@ body .navbar ul .links {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  z-index: 5;
 }
 
 body .navbar ul .links li {
   list-style: none;
   padding: 25px 25px;
+  z-index: 5;
 }
 
 body .navbar ul .links li a {
@@ -719,7 +728,7 @@ body .navbar ul .links li a {
   text-decoration: none;
   -webkit-transition: color .3s;
   transition: color .3s;
-  z-index: 2;
+  z-index: 5;
 }
 
 body .navbar ul .links li a:visited {
@@ -728,6 +737,64 @@ body .navbar ul .links li a:visited {
 
 body .navbar ul .links li a:hover {
   color: white;
+}
+
+body #home .art-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+}
+
+body #home .art-container .background {
+  position: relative;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+body #home .art-container .background img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+body #home .art-container .midground {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+body #home .art-container .midground img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+body #home .art-container .foreground {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+body #home .art-container .foreground img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+body #home .art-container .foreground #foreground-first-field {
+  bottom: -110%;
 }
 
 body #home .report-button-container {
@@ -741,6 +808,7 @@ body #home .report-button-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 4;
 }
 
 body #home .report-button-container .report-button {
@@ -761,6 +829,7 @@ body #home .report-button-container .report-button {
           backdrop-filter: blur(30px);
   -webkit-transition: all .20s;
   transition: all .20s;
+  z-index: 4;
 }
 
 body #home .report-button-container .report-button:hover {
