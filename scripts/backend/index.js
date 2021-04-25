@@ -520,7 +520,9 @@ class FireEventsManager {
     if (driver.isAvailable === false) throw new Error('Driver is unavailable.');
     if (fireFighter1.isAvailable === false) throw new Error('Firefighter1 is unavailable.');
     if (fireFighter2.isAvailable === false) throw new Error('Firefighter2 is unavailable.');
-    if (fireTruck.isAvailable === false) throw new Error('Firetruck is unavailable.')
+    if (fireTruck.isAvailable === false) throw new Error('Firetruck is unavailable.');
+
+    if (fireFighter1 === fireFighter2) throw new Error('FireFighter1 and fireFighter2 must not be the same person.');
 
     fireEvent.startOperationTime = startOperationTime;
     fireEvent.state = FireEventsManager.fireStates.inProgress;
