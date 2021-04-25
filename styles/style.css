@@ -120,20 +120,20 @@ section {
   cursor: pointer;
 }
 
+h1 {
+  position: absolute;
+  top: 4%;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 body {
   overflow-x: hidden;
   background: #17182d;
-}
-
-body .cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
-  pointer-events: none;
-  z-index: 1;
 }
 
 body .forms-overlay-container {
@@ -572,17 +572,6 @@ body .forms-overlay-container .form-overlay .report-form-container .type-field l
   margin-right: 1em;
 }
 
-body .forms-overlay-container .form-overlay h1 {
-  position: absolute;
-  top: 4%;
-  color: white;
-  font-family: 'Montserrat';
-  font-size: 2.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 body .forms-overlay-container .form-overlay .report-form-exit-button {
   position: absolute;
   right: -5px;
@@ -608,16 +597,27 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   padding: .9em 1.1em;
 }
 
-.navbar {
+body .cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body .navbar {
   color: #b6b6b6;
   font-family: 'Montserrat', sans-serif;
 }
 
-.navbar .dashboard {
+body .navbar .dashboard {
   display: none;
 }
 
-.navbar ul {
+body .navbar ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -637,12 +637,12 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
           justify-content: space-between;
 }
 
-.navbar ul #logo {
+body .navbar ul #logo {
   padding-left: 25px;
   padding-right: 5%;
 }
 
-.navbar ul .login-button-container {
+body .navbar ul .login-button-container {
   list-style: none;
   padding: 25px 25px;
   display: -webkit-box;
@@ -653,7 +653,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
           align-items: center;
 }
 
-.navbar ul .login-button-container a {
+body .navbar ul .login-button-container a {
   color: #b6b6b6;
   text-decoration: none;
   -webkit-transition: color .3s;
@@ -662,15 +662,15 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   display: none;
 }
 
-.navbar ul .login-button-container a:visited {
+body .navbar ul .login-button-container a:visited {
   color: #b6b6b6;
 }
 
-.navbar ul .login-button-container a:hover {
+body .navbar ul .login-button-container a:hover {
   color: white;
 }
 
-.navbar ul .login-button-container .login-button {
+body .navbar ul .login-button-container .login-button {
   background: none;
   border: none;
   outline: none;
@@ -690,12 +690,12 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   transition: all .20s;
 }
 
-.navbar ul .login-button-container .login-button:hover {
+body .navbar ul .login-button-container .login-button:hover {
   -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
           box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
 }
 
-.navbar ul .links {
+body .navbar ul .links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -709,12 +709,12 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
           justify-content: flex-start;
 }
 
-.navbar ul .links li {
+body .navbar ul .links li {
   list-style: none;
   padding: 25px 25px;
 }
 
-.navbar ul .links li a {
+body .navbar ul .links li a {
   color: #b6b6b6;
   text-decoration: none;
   -webkit-transition: color .3s;
@@ -722,15 +722,15 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   z-index: 2;
 }
 
-.navbar ul .links li a:visited {
+body .navbar ul .links li a:visited {
   color: #b6b6b6;
 }
 
-.navbar ul .links li a:hover {
+body .navbar ul .links li a:hover {
   color: white;
 }
 
-#home .report-button-container {
+body #home .report-button-container {
   height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -743,7 +743,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
           align-items: center;
 }
 
-#home .report-button-container .report-button {
+body #home .report-button-container .report-button {
   background: none;
   border: none;
   outline: none;
@@ -763,19 +763,19 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   transition: all .20s;
 }
 
-#home .report-button-container .report-button:hover {
+body #home .report-button-container .report-button:hover {
   margin-bottom: 6px;
   -webkit-box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
           box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
 }
 
-#info .info-text {
+body #info .info-text {
   font-size: 20px;
   font-family: 'Montserrat';
   font-weight: lighter;
 }
 
-#info .chart-container-container {
+body #info .chart-container-container {
   width: inherit;
   height: inherit;
   display: -webkit-box;
@@ -790,16 +790,16 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
           align-items: center;
 }
 
-#info .chart-container-container .chart-container {
+body #info .chart-container-container .chart-container {
   height: 70%;
   width: 80%;
 }
 
-#info .chart-container-container .chart-container #chart {
+body #info .chart-container-container .chart-container #chart {
   width: 100%;
 }
 
-#team .team-cards-container {
+body #team .team-cards-container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -821,7 +821,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   height: 100%;
 }
 
-#team .team-cards-container .card-exit-button {
+body #team .team-cards-container .card-exit-button {
   position: absolute;
   right: -100px;
   top: -15px;
@@ -842,17 +842,17 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   display: none;
 }
 
-#team .team-cards-container .card-exit-button:hover {
+body #team .team-cards-container .card-exit-button:hover {
   background: rgba(255, 255, 255, 0.425);
   padding: .9em 1.1em;
 }
 
-#team .team-cards-container .card-wrapper-hover {
+body #team .team-cards-container .card-wrapper-hover {
   -webkit-transform: rotateX(11deg) rotateY(-44deg);
           transform: rotateX(11deg) rotateY(-44deg);
 }
 
-#team .team-cards-container .team-card {
+body #team .team-cards-container .team-card {
   position: absolute;
   top: 15px;
   width: 355px;
@@ -863,7 +863,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
 }
 
-#team .team-cards-container .team-card h1 {
+body #team .team-cards-container .team-card h1 {
   position: absolute;
   top: 8%;
   right: 6%;
@@ -871,14 +871,14 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   font-weight: 400;
 }
 
-#team .team-cards-container .team-card .card-about-text {
+body #team .team-cards-container .team-card .card-about-text {
   position: absolute;
   top: 50%;
   left: 0%;
   display: none;
 }
 
-#team .team-cards-container .cards-parent-element {
+body #team .team-cards-container .cards-parent-element {
   position: absolute;
   left: 30%;
   width: 700px;
@@ -891,7 +891,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
 }
 
-#team .team-cards-container .frontend-card {
+body #team .team-cards-container .frontend-card {
   top: 0;
   left: 0;
   z-index: 4;
@@ -899,7 +899,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   background: linear-gradient(#4ccfd6 0%, #6a45e0 100%);
 }
 
-#team .team-cards-container .designer-card {
+body #team .team-cards-container .designer-card {
   top: 20px;
   left: 200px;
   z-index: 3;
@@ -908,7 +908,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
           backdrop-filter: blur(20px);
 }
 
-#team .team-cards-container .backend-card {
+body #team .team-cards-container .backend-card {
   top: 40px;
   left: 280px;
   z-index: 2;
@@ -917,7 +917,7 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
           backdrop-filter: blur(20px);
 }
 
-#team .team-cards-container .scrum-card {
+body #team .team-cards-container .scrum-card {
   top: 60px;
   left: 310px;
   z-index: 1;
@@ -925,12 +925,12 @@ body .forms-overlay-container .form-overlay .report-form-exit-button:hover {
   background: linear-gradient(#4ccfd6 0%, #6a45e0 100%);
 }
 
-#team .team-cards-container .card-hover {
+body #team .team-cards-container .card-hover {
   top: -20px;
   cursor: pointer;
 }
 
-#team .team-cards-container .card-selected {
+body #team .team-cards-container .card-selected {
   position: relative;
   width: 800px;
   height: 400px;
