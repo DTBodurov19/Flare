@@ -1,6 +1,6 @@
 const workerManager = new WorkerManager(localStorage);
 const fireTruckManager = new FireTruckManager(localStorage);
-const addButton = document.querySelector('.addButton');
+const addButton = document.querySelector('.add-button');
 const addMenu = document.querySelector('.add-menu');
 const addWorkerButton = document.querySelector('.add-worker-button');
 const addFireTruckButton = document.querySelector('.add-firetruck-button');

@@ -298,9 +298,13 @@ body .site-container {
 }
 
 body .site-container .events-container {
-  height: 50vh;
+  height: 60vh;
   width: 100%;
   border-bottom: 1px solid black;
+}
+
+body .site-container .events-container .events {
+  overflow-y: auto;
 }
 
 body .site-container .events-container .eventContainer {
@@ -312,12 +316,130 @@ body .site-container .events-container .eventContainer {
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  opacity: 0;
+  -webkit-animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running eventEnter;
+          animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running eventEnter;
 }
 
 body .site-container .events-container .eventContainer .event {
+  margin-bottom: 5px;
+  -webkit-perspective: 175em;
+          perspective: 175em;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 15px 0px;
+  padding-left: 20px;
   list-style-position: inside;
-  border: 1px solid black;
-  width: 80%;
+  border: 1px solid #cacaca;
+  border-radius: 20px;
+  width: 100%;
+  z-index: 5;
+  color: #7f87b7;
+}
+
+body .site-container .events-container .eventContainer .event p {
+  text-align: center;
+  overflow: auto;
+}
+
+body .site-container .events-container .eventContainer .interact-buttons-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .6s;
+  transition: .6s;
+  opacity: 0;
+}
+
+body .site-container .events-container .eventContainer .interact-buttons-container:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.493);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  cursor: pointer;
+}
+
+body .site-container .events-container .eventContainer .validate-button {
+  background: #00ff73;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  color: white;
+}
+
+body .site-container .events-container .eventContainer .validate-button:hover {
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+body .site-container .events-container .eventContainer .reject-button {
+  background: #d53d3c;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  color: white;
+}
+
+body .site-container .events-container .eventContainer .reject-button:hover {
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+body .site-container .events-container .eventContainer .mark-event-button {
+  background: #3f9cb8;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  color: white;
+}
+
+body .site-container .events-container .eventContainer .mark-event-button:hover {
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 body .site-container .events-container .nav {
@@ -327,10 +449,20 @@ body .site-container .events-container .nav {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  height: 5%;
+  height: 10%;
+  z-index: 100;
+}
+
+body .site-container .events-container .nav .add-container {
+  z-index: 100;
+}
+
+body .site-container .events-container .nav .add-container .add-button {
+  height: 100%;
 }
 
 body .site-container .events-container .nav .add-container .add-menu {
+  position: absolute;
   width: 150px;
   height: 100px;
   display: -webkit-box;
@@ -343,22 +475,20 @@ body .site-container .events-container .nav .add-container .add-menu {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background: rgba(50, 61, 109, 0.5);
-  -webkit-backdrop-filter: blur(40px);
-          backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   border: rgba(17, 17, 17, 0.219) 0.1px solid;
   border-radius: 20px;
-  z-index: 10;
   display: none;
 }
 
 body .site-container .events-container ol {
   height: inherit;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body .site-container .map-container {
-  height: 50vh;
+  height: 40vh;
   width: 100%;
 }
 
@@ -436,6 +566,54 @@ body .site-container .map-container #map {
     margin-bottom: 0;
     -webkit-backdrop-filter: blur(30px);
             backdrop-filter: blur(30px);
+  }
+}
+
+@-webkit-keyframes eventEnter {
+  0% {
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
+    opacity: 0;
+    margin-bottom: 60px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+  }
+  100% {
+    -webkit-filter: none;
+            filter: none;
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    z-index: 1;
+  }
+}
+
+@keyframes eventEnter {
+  0% {
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
+    opacity: 0;
+    margin-bottom: 60px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+  }
+  100% {
+    -webkit-filter: none;
+            filter: none;
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    z-index: 1;
   }
 }
 /*# sourceMappingURL=dispatcherSite.css.map */

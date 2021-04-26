@@ -54,8 +54,6 @@ function showFinishButton(){
       container.onmouseout = function () {
         container.style.backgroundColor = 'white';
       }
-    
-      container.onclick = finishEvent;
 
       return container;
     }

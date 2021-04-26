@@ -9,7 +9,7 @@ function getEvents(events) {
 
     let eventList = document.createElement("li");
     let textNode = document.createTextNode(
-      `${event.description} ${event.fireSize} ${event.lat} ${event.long} ${event.reporterName} ${event.startDate} ${event.state} ${event.telephoneNumber}`
+      `${event.reporterName} ${event.telephoneNumber} ${event.startDate} ${event.description} ${event.fireSize}  ${event.state}`
     );
 
     eventList.appendChild(textNode);

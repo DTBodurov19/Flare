@@ -6,13 +6,11 @@ const refreshButton = document.querySelector(".refreshButton");
 function validateEvent(button) {
   let id = button.className.split(" ")[1];
   fireEventsManager.validateFireEvent(+id);
-  console.log(`Validated ${id}`);
 }
 
 function rejectEvent(button) {
   let id = button.className.split(" ")[1];
   fireEventsManager.rejectFireEvent(+id);
-  console.log(`Rejected ${id}`);
 }
 
 function getEvents(events) {
@@ -23,10 +21,15 @@ function getEvents(events) {
 
     let eventList = document.createElement("li");
     let textNode = document.createTextNode(
-      `${event.description} ${event.fireSize} ${event.lat} ${event.long} ${event.reporterName} ${event.startDate} ${event.state} ${event.telephoneNumber}`
+      `${event.reporterName} ${event.telephoneNumber} ${event.startDate} ${event.description} ${event.fireSize} ${event.state}`
     );
+    eventList.innerHTML =`<p class="event-field">${event.reporterName}</p> <p class="event-field">${event.telephoneNumber}</p> <p class="event-field">${event.startDate}</p> <p class="event-field">${event.description}</p> <p class="event-field">${event.fireSize}</p>  <p class="event-field">${event.state}</p>`;
 
-    eventList.appendChild(textNode);
+    let interactButtonsContainer = document.createElement("div");
+    interactButtonsContainer.classList.add('interact-buttons-container');
+    interactButtonsContainer.classList.add(event.ID.toString());
+
+    eventList.appendChild(interactButtonsContainer);
     eventContainer.appendChild(eventList);
     eventList.classList.add("event");
     eventList.classList.add(event.ID.toString());
@@ -35,27 +38,42 @@ function getEvents(events) {
     let verifyButtonNode = document.createTextNode("Validate");
 
     verifyButton.appendChild(verifyButtonNode);
-    eventContainer.appendChild(verifyButton);
+    interactButtonsContainer.appendChild(verifyButton);
     verifyButton.classList.add("validate-button");
     verifyButton.classList.add(event.ID.toString());
+    verifyButton.classList.add('button');
     
     let rejectButton = document.createElement("button");
     let rejectButtonNode = document.createTextNode("Reject");
 
     rejectButton.appendChild(rejectButtonNode);
-    eventContainer.appendChild(rejectButton);
+    interactButtonsContainer.appendChild(rejectButton);
     rejectButton.classList.add("reject-button");
     rejectButton.classList.add(event.ID.toString());
+    rejectButton.classList.add('button');
 
     let eventMarkerButton = document.createElement("button");
     let eventMarkerButtonNode = document.createTextNode("Mark event");
     eventMarkerButton.appendChild(eventMarkerButtonNode);
-    eventContainer.appendChild(eventMarkerButton);
+    interactButtonsContainer.appendChild(eventMarkerButton);
     eventMarkerButton.classList.add("mark-event-button");
     eventMarkerButton.classList.add(event.ID.toString());
+    eventMarkerButton.classList.add('button');
 
     eventsContainer.appendChild(eventContainer);
     eventContainer.classList.add("eventContainer");
+  }
+
+  let pWidth = Math.round(window.innerWidth / 6) + 'px';
+
+  let eventFields = [...document.querySelectorAll('.event-field')];
+
+  console.log('hi');
+  console.log(eventFields);
+
+  for(const field of eventFields) {
+    field.style.width = pWidth;
+    field.style.overflow = 'auto';
   }
 
   let validateButtons = [...document.querySelectorAll(".validate-button")];
