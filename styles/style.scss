@@ -669,7 +669,7 @@ body{
 
     #info{
             .info-text{
-                font-size: 20px;
+                font-size: 30px;
                 font-family: 'Montserrat';
                 font-weight: lighter;
             }
@@ -692,7 +692,12 @@ body{
     }
 
     #team{
-
+        .team-text{
+            font-size: 30px;
+            font-family: 'Montserrat';
+            font-weight: lighter;
+            margin-top: 5em;
+        }
             .team-cards-container{
                 position: relative;
                 display: flex;
@@ -702,7 +707,7 @@ body{
                 align-items: center;
                 align-self: center;
                 width: 100%;
-                height: 100%;
+                height: 80%;
 
                 .card-exit-button {
                     position: absolute;
@@ -812,6 +817,85 @@ body{
                     z-index: 15;
                 }
             }
+    }
+
+        #footer{
+            height: 20vh;
+
+            .links{
+                display: flex;
+                justify-content: space-evenly;
+
+                .legals{
+                    text-decoration: none;
+                    background: none;
+                    border:none;
+                    outline: none;
+                    padding: .2em .5em;
+                    font-size: 1.5em;
+                    text-align: center;
+                    color: white;
+                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    width: 5em;
+                    background: rgba(50, 61, 109, 0.5);
+                    backdrop-filter: blur(30px);
+                    transition: all .20s;
+                    z-index: 5;
+
+                    &:hover{
+                        box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+                    }
+                }
+
+                .documentation{
+                    text-decoration: none;
+                    background: none;
+                    border:none;
+                    outline: none;
+                    padding: .2em .5em;
+                    font-size: 1.5em;
+                    text-align: center;
+                    color: white;
+                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    width: 5em;
+                    background: rgba(50, 61, 109, 0.5);
+                    backdrop-filter: blur(30px);
+                    transition: all .20s;
+                    z-index: 5;
+                    width: 40vh;
+
+                    &:hover{
+                        box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+                    }
+                }
+
+                .contact{
+                    text-decoration: none;
+                    background: none;
+                    border:none;
+                    outline: none;
+                    padding: .2em .5em;
+                    font-size: 1.5em;
+                    text-align: center;
+                    color: white;
+                    box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    width: 5em;
+                    background: rgba(50, 61, 109, 0.5);
+                    backdrop-filter: blur(30px);
+                    transition: all .20s;
+                    z-index: 5;
+
+                    &:hover{
+                        box-shadow: rgba(255, 255, 255, 0.705) 0px 0px 0px 0.5px inset;
+                    }
+                }
+        }
     }
 }
 

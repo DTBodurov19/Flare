@@ -10,6 +10,7 @@ let myChart = document.getElementById('Chart').getContext('2d');
         data:{
         labels:['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets:[{
+        label: 'Extinguished fires',
         data:[
             147,
             139,
@@ -27,7 +28,7 @@ let myChart = document.getElementById('Chart').getContext('2d');
 
 
         borderWidth:1,
-        borderColor:'#777',
+        borderColor:'#c76006',
         hoverBorderWidth:3,
         hoverBorderColor:'#000'
         }]
