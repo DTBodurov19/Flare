@@ -1,14 +1,5 @@
-1. welcome
-2. for our team
-3. Our goal
-4. realization path
-5. used technologies
-6. live demo
-7. block shemi
-8. questions
-
 <p align = "center">
-  <img src = "img/Logo_transparent.png" alt = "logo" width = 200px height = 350px>
+  <img src = "img/Logo_transparent.png" width = 200px height = 350px>
   </p>
   </p>
   <h1 align = "center"> Team Flare </h1>
@@ -33,6 +24,8 @@
   <hr/>
     <p align = "center"><a href = "https://dtbodurov19.github.io/Flare/">See our site</a></p>
     <hr>
+    <p align = "center"><a href = "https://ndpeshev19.github.io/Flare-documentation/">See Our Backend Documentation</a></p>
+    <hr>
    <h1 align = "center"> Technologies Used : </h1>
    <p align = "center">
     We used HTML for our structure </p>
@@ -48,3 +41,8 @@
     <p align = "center">Boris Savov - Designer </p>
     <p align = "center">Nikola Peshev - Backend Developer </p>
     <p align = "center">Dimitar Bodurov - Scrum Trainer </p>
+    <hr>
+    <p align = "center">Pull requests are welcome. If you support our project, you can always share it on social media.</p>
+    <p align = "center">
+    <img src = "https://cdn.discordapp.com/attachments/821743548353085440/821743993997492254/LOGO_FS.png" width = 100px height = 100px align = "center">
+    </p>
