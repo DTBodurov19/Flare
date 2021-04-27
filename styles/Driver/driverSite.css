@@ -1,6 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap");
 * {
   margin: 0;
   padding: 0;
+}
+
+.forms-overlay-container {
+  position: absolute;
+}
+
+.forms-overlay-container .form-bg-blur-animation {
+  -webkit-animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
+          animation: 0.8s ease 0s 1 normal forwards running blurFormBackground;
+}
+
+.forms-overlay-container .form-enter-animation {
+  -webkit-animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
+          animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running loginFormEnter;
+}
+
+.forms-overlay-container .form-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  z-index: -1;
+  display: none;
+  -webkit-perspective: 175em;
+          perspective: 175em;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  height: 50%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  background: rgba(50, 61, 109, 0.5);
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  border: rgba(255, 255, 255, 0.219) 0.1px solid;
+  border-radius: 20px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+  opacity: 0;
+  display: none;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container .message-container {
+  position: absolute;
+  bottom: 15px;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container .message-container #message {
+  font-family: 'Montserrat';
+  color: white;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container #start-event-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container #start-event-form .submit-button-container .start-event-form-button {
+  padding: 1em 8em;
+  background: -webkit-gradient(linear, right top, left top, from(#ff008c), to(purple));
+  background: linear-gradient(to left, #ff008c, purple);
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  -webkit-box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+          box-shadow: rgba(255, 0, 140, 0.349) 0px 0px 15px 0.5px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container #start-event-form .submit-button-container .start-event-form-button:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container h1 {
+  position: absolute;
+  top: 15%;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container .form-exit-button {
+  position: absolute;
+  right: -5px;
+  top: -10px;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  padding: .8em 1em;
+  background: rgba(255, 255, 255, 0.144);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+          box-shadow: rgba(255, 255, 255, 0.342) 0px 0px 0px 0.5px inset;
+  color: white;
+  font-size: 1em;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.forms-overlay-container .form-overlay .start-event-form-container .form-exit-button:hover {
+  background: rgba(255, 255, 255, 0.425);
+  padding: .9em 1.1em;
 }
 
 body .site-container {
@@ -30,12 +174,94 @@ body .site-container .events-container .eventContainer {
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  opacity: 0;
+  -webkit-animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running eventEnter;
+          animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal forwards running eventEnter;
 }
 
 body .site-container .events-container .eventContainer .event {
+  margin-bottom: 5px;
+  -webkit-perspective: 175em;
+          perspective: 175em;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 15px 0px;
+  padding-left: 20px;
   list-style-position: inside;
-  border: 1px solid black;
-  width: 80%;
+  border: 1px solid #cacaca;
+  border-radius: 20px;
+  width: 100%;
+  z-index: 5;
+  color: #7f87b7;
+}
+
+body .site-container .events-container .eventContainer p {
+  text-align: center;
+  overflow: auto;
+}
+
+body .site-container .events-container .interact-buttons-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .6s;
+  transition: .6s;
+  opacity: 0;
+}
+
+body .site-container .events-container .interact-buttons-container .start-event-button {
+  background: #00ff73;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  color: white;
+}
+
+body .site-container .events-container .interact-buttons-container .start-event-button:hover {
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+body .site-container .events-container .interact-buttons-container:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.493);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  cursor: pointer;
 }
 
 body .site-container .events-container ol {
@@ -75,5 +301,117 @@ body .site-container .map-container .leaflet-control-attribution {
 body .site-container .map-container #map {
   height: 100%;
   width: 100%;
+}
+
+@-webkit-keyframes blurFormBackground {
+  0% {
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  100% {
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+}
+
+@keyframes blurFormBackground {
+  0% {
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  100% {
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+}
+
+@-webkit-keyframes loginFormEnter {
+  0% {
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
+    opacity: 0;
+    margin-bottom: 60px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+  }
+}
+
+@keyframes loginFormEnter {
+  0% {
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
+    opacity: 0;
+    margin-bottom: 60px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+  }
+}
+
+@-webkit-keyframes eventEnter {
+  0% {
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
+    opacity: 0;
+    margin-bottom: 60px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+  }
+  100% {
+    -webkit-filter: none;
+            filter: none;
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    z-index: 1;
+  }
+}
+
+@keyframes eventEnter {
+  0% {
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    -webkit-transform: rotateX(-18deg);
+            transform: rotateX(-18deg);
+    opacity: 0;
+    margin-bottom: 60px;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+            box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px;
+  }
+  100% {
+    -webkit-filter: none;
+            filter: none;
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+    margin-bottom: 0;
+    z-index: 1;
+  }
 }
 /*# sourceMappingURL=driverSite.css.map */

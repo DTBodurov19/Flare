@@ -64,9 +64,6 @@ addButton.addEventListener('click', () =>{
     }
 });
 
-addWorkerButton.addEventListener('click', () =>{
-    console.log("i am work yes");
-});
 workerForm.addEventListener('submit', (e) => {
     e.preventDefault();
     addNewWorker();

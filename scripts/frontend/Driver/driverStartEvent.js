@@ -51,21 +51,15 @@ function fillStartEventForm(drivers, fireFighters, trucks){
 }
 
 
-function finishEvent(button){
-    let id = button.className.split(' ')[1];
-    fireEventsManager.finishOperationOnFireEvent(+id, new Date(), 69);
+function finishEvent(id){
+    fireEventsManager.finishOperationOnFireEvent(id, new Date(), 69);
   }
 
 function startEvent(button, driver, fireFighter1, fireFighter2, fireTruck) {
   let id = +button.className.split(" ")[1];
   fireEventsManager.startOperationOnFireEvent(id, new Date(), driver, fireFighter1, fireFighter2, fireTruck);
-  console.log(fireEventsManager.getFireEventsByState(FireEventsManager.fireStates.inProgress));
   eventsConatainer.style.display = 'none';
   mapContainer.style.height = '200%';
   map.invalidateSize();
   showFinishButton();
-
-  let finishEventButton = document.querySelector('.leaflet-control');
-
-  finishEventButton.addEventListener('click', finishEvent(button));
 }

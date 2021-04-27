@@ -68,9 +68,6 @@ function getEvents(events) {
 
   let eventFields = [...document.querySelectorAll('.event-field')];
 
-  console.log('hi');
-  console.log(eventFields);
-
   for(const field of eventFields) {
     field.style.width = pWidth;
     field.style.overflow = 'auto';

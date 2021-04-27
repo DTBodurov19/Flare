@@ -26,4 +26,3 @@ formExitButton.addEventListener('click', ()=>{
     workerFormContainer.classList.remove('form-enter-animation');
     document.body.style.overflowY = 'scroll';
 });
-
