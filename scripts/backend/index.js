@@ -652,7 +652,6 @@ class FireEventsManager {
 
     if (fireEvent.state !== FireEventsManager.fireStates.inProgress) throw new Error('Invalid FireEvent');
     if (!(finishTime instanceof Date)) throw new Error('StartOperationTime must be instance of Date class.');
-
     if (fireTruck.kmTraveled > newkmTraveled) throw new Error('Invalid newkmTraveled.');
 
     fireEvent.state = FireEventsManager.fireStates.finished;

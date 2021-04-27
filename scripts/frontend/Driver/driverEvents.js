@@ -1,6 +1,8 @@
 const fireEventsManager = new FireEventsManager(localStorage);
 const eventsContainer = document.querySelector(".events");
 
+let currentEventId;
+
 function getEvents(events) {
   eventsContainer.innerHTML = "";
 
@@ -57,6 +59,7 @@ function getEvents(events) {
       startEventForm.addEventListener('submit', (e) => {
         e.preventDefault();
         let messageElement = document.querySelector('#message');
+        currentEventId = +button.className.split(" ")[1];
         try {
           startEvent(button, workerManager.getWorkerByID(+driversDropDown.value), workerManager.getWorkerByID(+fireFightersDropDown1.value), workerManager.getWorkerByID(+fireFightersDropDown2.value), truckManager.getFireTruckByLicencePlate(trucksDropDown.value));
           placeMarker(button);

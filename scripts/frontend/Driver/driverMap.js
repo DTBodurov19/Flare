@@ -55,6 +55,10 @@ function showFinishButton(){
         container.style.backgroundColor = 'white';
       }
 
+      container.addEventListener('click', () => {
+        finishEvent(currentEventId);
+      });
+
       return container;
     }
   });
