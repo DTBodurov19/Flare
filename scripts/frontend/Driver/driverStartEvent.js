@@ -53,6 +53,7 @@ function fillStartEventForm(drivers, fireFighters, trucks){
 
 function finishEvent(id){
     fireEventsManager.finishOperationOnFireEvent(id, new Date(), 300000);
+    location.reload();
   }
 
 function startEvent(button, driver, fireFighter1, fireFighter2, fireTruck) {

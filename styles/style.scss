@@ -667,25 +667,25 @@ body{
             }
     }
 
-    #info{
-            .info-text{
-                font-size: 30px;
-                font-family: 'Montserrat';
-                font-weight: lighter;
-            }
-            .chart-container-container{
-                width: inherit;
-                height: inherit;
-                display: flex;
-                justify-content: center;
-                justify-items: center;
-                align-items: center;
-                .chart-container{
-                    height: 70%;
-                    width: 80%;
-
-                    #chart{
-                        width: 100%;
+    #info{        
+        .info-text{
+            font-size: 30px;
+            font-family: 'Montserrat';
+            font-weight: lighter;
+        }
+        .chart-container-container{
+            width: inherit;
+            height: inherit;
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            .chart-container{
+                height: 70%;
+                width: 80%;
+                
+                #chart{
+                    width: 100%;
                     }
                 }
             }

@@ -60,16 +60,8 @@ function getEvents(events) {
         e.preventDefault();
         let messageElement = document.querySelector('#message');
         currentEventId = +button.className.split(" ")[1];
-        try {
           startEvent(button, workerManager.getWorkerByID(+driversDropDown.value), workerManager.getWorkerByID(+fireFightersDropDown1.value), workerManager.getWorkerByID(+fireFightersDropDown2.value), truckManager.getFireTruckByLicencePlate(trucksDropDown.value));
           placeMarker(button);
-        }
-        catch(error) {
-          messageElement.innerHTML = error;
-        }
-        finally{
-          messageElement.innerHTML = "";
-        }
       });
     });
   }
